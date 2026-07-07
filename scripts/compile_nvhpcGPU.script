@@ -1,0 +1,19 @@
+#! /bin/bash
+
+# Load correct modules
+# Load Compilers. For GPU acceleration with openACC, the NVIDIA compilers are required
+module load <COMPILERS>
+# Maths libraries are required for build (BLAS, LAPACK) as well as an FFT library (FFTW, MKL)
+module load <FFT-LIBRARY>
+
+INSTALL_LOCATION=PATH/TO/INSTALL/LOCATION
+
+echo CLEANING UP
+#make clean
+
+# The ACC and ACC_TARGET control the compilation of GPU accelerated code. Targeting the correct compute capability for GPU offloading is key for an effective binary
+# FFT and maths libraries are controlled bu FFT and MATHLIBS. If the associated libraries are in the PATH then a path to each library is not required
+# TARGETCPU controls the CPU architecture for compilation, which may be either host (compilation CPU and calculation CPU are the same) or portable (compilation and calculation CPU are different)
+echo CLEANED. STARTING COMPILATION
+make -j 8 BUILD=fast COMMS_ARCH=mpi ACC=true ACC_TARGET=Ampere CUDA_VERSION=13.0 FFT=fftw3 MATHLIBS=generic TARGETCPU=portable GRIMMED3=none GRIMMED4=none INSTALL_DIR=$INSTALL_LOCATION install
+echo COMPILATION COMPLETE
