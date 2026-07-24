@@ -143,7 +143,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 768 GB DDR5                                                               |
 | Local storage             | 480 GB SATA SSD                                                           |
 
-**Falcon GPU 200**
+**Falcon GPU H200**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2 $\times$ [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
