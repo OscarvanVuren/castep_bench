@@ -50,7 +50,7 @@ Two regimes were explored in the benchmarking procedure; a metal system with a d
 <center>
 <figure>
    <img src="./figs/Fe.png" width="400">
-   <figcaption> 16 Fe atoms in a periodic box (black lines)
+   <figcaption> 16 iron atoms in a periodic box (black lines)
 </figure>
 
 <figure>
@@ -96,7 +96,7 @@ srun -n <n_slurm_tasks> $EXECUTABLE $SEEDNAME
 
 This will perform a CASTEP run using the number of tasks specified.
 > [!NOTE]
-> CASTEP will not always run with the number of tasks specified, but will instead use the most tasks possible when parallelising over **k**-points. The iron benchmark has a total of 32 **k**-points, thus using multiples of 32 tasks, even when more have been requested. When using very few MPI tasks, this behaviour is ignored to ensure optimal performance at low core counts.
+> CASTEP will not always run with the number of tasks specified, but will instead use the most tasks possible when parallelising over **k**-points. The Fe benchmark has a total of 32 **k**-points, thus using multiples of 32 tasks, even when more have been requested. When using very few MPI tasks, this behaviour is ignored to ensure optimal performance at low core counts.
 
 The `SEEDNAME` used in running the benchmarks determines the output filenames. Most file IO has been disabled, however CASTEP will generate two files during execution: a`SEEDNAME.castep` output file and a `.usp` on the fly generated (OTFG) pseudopotential for each species in the `SEEDNAME.cell` file.
 
@@ -111,7 +111,7 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 
 [> Add the hardware information used, including where applicable the queue information if necessary. Comment on expected normal limit for the hardware, e.g. size of the largest interconnected set of nodes, or memory limitations. Compare with the reference architecture (if different), indicating any issues you may expect to see due to the differences.]: #
 
-Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` on the compute nodes.
+Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C' for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
 
 1. The [Falcon](https://wiki.arcca.cf.ac.uk/index.php/The_Falcon_Supercomputer) cluster at Cardiff University.
    * AMD Epyc Genoa 9654 CPU. 192 cores per node. 30 nodes total across partitions.
@@ -125,7 +125,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
    * AMD EPYC Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node available.
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
-   * IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.
+   [* IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.]: #
    * NVIDIA Grace-Hopper Superchip. NVIDIA Grace CPU, 72 cores per node. 1 GH200 GPU per node. 8 nodes available.
 
 [> Provide processor, memory and cache information as well as interconnect information (e.g. Infiniband, NVlink - if across multiple nodes) of the system the assessment is to be performed on.]: #
@@ -204,7 +204,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Clock speed per CPU       | 4.0 GHz                                                                     |
 | Sockets                   | 1                                                                          |
 | Cores (per socket)        | 32 (32)                                                                       |
-| CPU Cache                 | <ul><li>L1d 1.3 MiB </li><li> L1i 1.3 MiB </li><li> L2 40 MiB </li><li> L3 55 MiB </li></ul>     |
+| CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
 | Local storage             | 480 GB SATA SSD                                                           |
 
@@ -217,22 +217,22 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Clock speed per CPU       | 4.0 GHz                                                                     |
 | Sockets                   | 1                                                                          |
 | Cores (per socket)        | 32 (32)                                                                        |
-| CPU Cache                 | <ul><li>L1d 1.3 MiB </li><li> L1i 1.3 MiB </li><li> L2 40 MiB </li><li> L3 55 MiB </li></ul>     |
+| CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
 | Local storage             | 480 GB SATA SSD                                                           |
 
-**Bede POWER9**
-IBM POWER9 CPUs have 4 hardware threads available per core. System summaries that do not contain an explicit thread count have one thread per CPU core.
-| Specification             | Per node                                                                     |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ IBM POWER9 CPU        |
-| GPU                       | 4 $\times$ [NVIDIA V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) |
-| GPU Connect               | NVLink 2.0                                                                        |
-| Clock speed per CPU       | 2.4 GHz                                                                     |
-| Sockets                   | 2                                                                          |
-| Cores (threads)           | 40 (160)                                                                    |
-| RAM                       | 512 GB DDR4                                                               |
-| Local storage             | 480 GB SATA SSD                                                           |
+[**Bede POWER9** ]: #
+[IBM POWER9 CPUs have 4 hardware threads available per core. System summaries that do not contain an explicit thread count have one thread per CPU core. ]: #
+[| Specification             | Per node                                                                     | ]: #
+[| ------------------------- | ---------------------------------------------------------------------------- | ]: #
+[| Processors                | 2 $\times$ IBM POWER9 CPU                                                      | ]: #
+[| GPU                       | 4 $\times$ [NVIDIA V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) | ]: #
+[| GPU Connect               | NVLink 2.0                                                                     | ]: #
+[| Clock speed per CPU       | 2.4 GHz                                                                     | ]: #
+[| Sockets                   | 2                                                                          | ]: #
+[| Cores (threads)           | 40 (160)                                                                    | ]: #
+[| RAM                       | 512 GB DDR4                                                               | ]: #
+[| Local storage             | 480 GB SATA SSD                                                           | ]: #
 
 **Bede Grace Hopper**
 | Specification             | Per node                                                                     |
@@ -314,9 +314,10 @@ The `<parameter>` value can be varied to increase the problem size for scaling t
 
 ## 5: Memory, storage and I/O
 
-[> Comment on the expected in memory size of the program at runtime, including data. An estimate of this information should be provided as part of the submission. For jobs submitted to Hamilton as part of early assessment, the Hamilton dashboard can be used to gauge memory usage (see [Hamilton Portal Performance](https://www.durham.ac.uk/research/institutes-and-centres/advanced-research-computing/hamilton-supercomputer/usage/portal/performance/)).]: #
+[> Comment on the expected in memory size of the program at runtime, including data. An estimate of this information should be provided as part of the submission. For jobs submitted to Hamilton as part of early assessment, the Hamilton dashboard can be used to gauge memory usage (see Hamilton Portal Performance(https://www.durham.ac.uk/research/institutes-and-centres/advanced-research-computing/hamilton-supercomputer/usage/portal/performance/)).]: #
 
-CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark. Additionally, the peak memory use for each benchmark and CPU are provided, compared to the estimated cost at full node saturation.
+CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark. 
+[Additionally, the peak memory use for each benchmark and CPU are provided, compared to the estimated cost at full node saturation.]: #
 
 **Fe**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
@@ -326,11 +327,11 @@ Electronic energy minimisation requirements | 2348.2                          |
 Force calculation requirements              | 34.8                            |
 Stress calculation requirements             | 34.8                            |
 
-CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB |
---------------------------|------------------------------:|------------------------------:|
-AMD EPYC Genoa 9654       | 4831065.6                     | 25973.128                     |
-Intel Xeon 6530           | 575635.2                      | 9405.452                      |
-NVIDIA Grace              | 53203.2                       | 1089.216                      | 
+[CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB |        ]: #
+[--------------------------|------------------------------:|------------------------------:|]: #
+[AMD EPYC Genoa 9654       | 4831065.6                     | 25973.128                     |]: #
+[Intel Xeon 6530           | 575635.2                      | 9405.452                      |]: #
+[NVIDIA Grace              | 53203.2                       | 1089.216                      |]: # 
 
 **Water Box**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
@@ -340,13 +341,12 @@ Electronic energy minimisation requirements | 4664.4                          |
 Force calculation requirements              | 262.8                           |
 Stress calculation requirements             | 319.1                           |
 
-CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB |
---------------------------|------------------------------:|------------------------------:|
-AMD EPYC Genoa 9654       | 4962067.2                     | 27325.188                     |
-Intel Xeon 6530           | 570944.0                      | 10235.132                     |
-NVIDIA Grace              | 58370.4                       | 1945.024                      | 
+[CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB         |]: #
+[--------------------------|------------------------------:|------------------------------:|]: #
+[AMD EPYC Genoa 9654       | 4962067.2                     | 27325.188                     |]: #
+[Intel Xeon 6530           | 570944.0                      | 10235.132                     |]: #
+[NVIDIA Grace              | 58370.4                       | 1945.024                      | ]: #
 
-According to the submitter, the expected memory required for the benchmark is `<memory_size>`GB.
 
 [> Comment on the expected storage requirements of the program, are there large amounts of temporary files (either in quantity or in total size)? An estimate of this information should be provided as part of the submission. A program that produces a large amount of temporary checkpoint files should have checkpoints turned off where possible.]: #
 
@@ -357,8 +357,6 @@ TRACE PROF: * :END PROF
 %endblock devel_code
 ```
 which will write a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in the benchmark run. These files are only written after the simulation is complete and each one is around 350 KB.
-
-The benchmark also outputs files totalling `<storage_size>`MB.
 
 
 [> Comment on the expected output, including when the I/O is performed, and your observations when running the benchmark. This output should be minimal when testing the working performance of the program rather than the I/O saturation. Excessive I/O will result in an inaccurate performance assessment and may result in rejection.]: #
