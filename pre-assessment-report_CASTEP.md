@@ -375,13 +375,40 @@ Included in this section are the outcomes from preliminary benchmarking performe
 
 **Fe 2x2**
 
+Raw timing data for the CPU only performance of various architectures, alongside strong scaling up to 32 MPI processes are presented here.
+
+<figure>
+   <img src="./figs/plots/fe_cpu.png" width="600">
+   <figcaption> Raw calculation data for the Fe 2x2 benchmark.
+</figure>
+
+<figure>
+   <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
+   <figcaption> Strong scaling of the Fe 2x2 benchmark, up to 32 MPI processes.
+</figure>
+
+
 **Waterbox**
+
+<figure>
+   <img src="./figs/plots/waterbox_cpu.png" width="600">
+   <figcaption> Raw calculation data for the water box benchmark.
+</figure>
+
+<figure>
+   <img src="./figs/plots/waterbox_cpu_strongScaling.png" width="600">
+   <figcaption> Strong scaling of the water box benchmark, up to 32 MPI processes.
+</figure>
 
 #### GPU Benchmarking
 
 **Fe 2x2**
 
 **Waterbox**
+
+#### Compiler Testing
+
+As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured; comparing gfortran+openMPI+openBLAs+FFTW3 to an Intel stack of ifort+Intel MPI+MKL+MKL_FFT. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (nvfortran+openMPI+NVPL+FFTW3).
 
 
 >[!IMPORTANT]
