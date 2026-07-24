@@ -8,16 +8,14 @@ module load <MATHS-LIBRARIES>
 module load <FFT-LIBRARY>
 
 # Install location of the castep.mpi binary
-INSTALL_LOCATION=PATH/TO/INSTALL/LOCATION
+INSTALL_LOCATION=<PATH/TO/INSTALL/LOCATION>
 
-# The ACC and ACC_TARGET control the compilation of GPU accelerated code. Targeting the correct compute capability for GPU offloading is key for an effective binary
-# FFT and maths libraries are controlled by FFT and MATHLIBS. If the associated libraries are in the PATH then providing make with a path to each library is not required
-# Choice of FFT and maths libraries are outlined in the Makefile in the top level CASTEP source directory
-# TARGETCPU controls the CPU architecture for compilation, which may be either host (compilation CPU and calculation CPU are the same) or portable (compilation and calculation CPU are different)
-echo CLEANED. STARTING COMPILATION
+
+echo STARTING COMPILATION
+
 make -j 8 BUILD=fast COMMS_ARCH=mpi # General controls of compilation. BUILD=fast is recommended for production calculations
-make -j 8 ACC=true ACC_TARGET=<GPU_ARCH> CUDA_VERSION=13.0 # Control of GPU offloading
 make -j 8 FFT=<FFT-LIBRARY> MATHLIBS=<MATHS-LIBRARIES> TARGETCPU=portable # Maths and FFT library specification, and of CPU optimisation
 make -j 8 GRIMMED3=none GRIMMED4=none # Disabling some unneeded features
 make -j 8 INSTALL_DIR=$INSTALL_LOCATION install # Specify install location and perform install procedure
+
 echo COMPILATION COMPLETE
