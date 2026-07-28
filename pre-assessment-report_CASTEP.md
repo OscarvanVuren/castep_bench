@@ -377,7 +377,7 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Raw calculation data for the Fe 2x2 benchmark.
+   <figcaption> Raw calculation timing data for the Fe 2x2 benchmark.
 </figure>
 
 <figure>
@@ -390,7 +390,7 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/waterbox_cpu.png" width="600">
-   <figcaption> Raw calculation data for the water box benchmark.
+   <figcaption> Raw calculation timing data for the water box benchmark.
 </figure>
 
 <figure>
@@ -402,7 +402,37 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 **Fe 2x2**
 
+<figure>
+   <img src="./figs/plots/fe_gpu.png" width="600">
+   <figcaption> Raw calculation timing data for the Fe 2x2 benchmark, when using GPU acceleration.
+</figure>
+
+<figure>
+   <img src="./figs/plots/fe_gpu_speedup.png" width="600">
+   <figcaption> Speedup from CPU by using a GPU for the Fe 2x2 benchmark.
+</figure>
+
+<figure>
+   <img src="./figs/plots/fe_gpu_percentage.png" width="600">
+   <figcaption> Computational cost saving from using a GPU for the Fe 2x2 benchmark. Higher is better.
+</figure>
+
 **Waterbox**
+
+<figure>
+   <img src="./figs/plots/waterbox_gpu.png" width="600">
+   <figcaption> Raw calculation timing data for the water box benchmark, when using GPU acceleration.
+</figure>
+
+<figure>
+   <img src="./figs/plots/waterbox_gpu_speedup.png" width="600">
+   <figcaption> Speedup from CPU by using a GPU for the water box benchmark.
+</figure>
+
+<figure>
+   <img src="./figs/plots/waterbox_gpu_percentage.png" width="600">
+   <figcaption> Computational cost saving from using a GPU for the water box benchmark. Higher is better.
+</figure>
 
 #### Compiler Testing
 
