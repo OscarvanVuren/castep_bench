@@ -5,15 +5,7 @@ Contributors: Andrew Naden; Ananya Gangopadhyay
 Summary: Pre-assessment report template document
 ---
 
-# Pre-assessment template
-
-> [!NOTE]
->
-> 1. Guidance throughout this template is provided using information boxes, along with example text and placeholders. The example text is not meant to be a complete comment, but a suggestion to get you started. Please remove the information boxes and replace the example text in your report.
->
-> 2. The template is based on Chapter 4 of the [performance assessment guidebook](https://shareing-dri.github.io/performance-assessment/guidebook). However, the guidebook should not be necessary to perform the pre-assessment using this template.
->
-> 3. This template is not exhaustive, but should provide the framework for completing a pre-assessment using the information submitted via the [assessment submission form](https://forms.office.com/Pages/ResponsePage.aspx?id=i9hQcmhLKUW-RNWaLYpvlIUXnqx3D81Bt-KemxGOyY5UOU9RQkFSOE5UU1Y1QVZNS0QyNlFYNjRNOS4u), by the submitter.
+# Pre-assessment of CASTEP for SHAREing Task 019
 
 ## Assessment objective
 
@@ -28,20 +20,19 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 
 ## Disclaimers
 
-1. This report is not a commentary on code quality, but an indicator of the quality of the current SHAREing testing methodology as of `<guidance_date>`.
-2. The pre-assessment is only a preliminary assessment of submission suitability and does not guarantee a full assessment. It will be provided to the submitter indicating if the full assessment will be undertaken or detail reasons for rejection.
+1. This report is not a commentary on code quality, but an indicator of the quality of the current SHAREing testing methodology as of `31/07/2026`.
+[2. The pre-assessment is only a preliminary assessment of submission suitability and does not guarantee a full assessment. It will be provided to the submitter indicating if the full assessment will be undertaken or detail reasons for rejection.]: #
 
 ## Table of contents
 
 [> Place `x` inside the box when complete to mark the checkbox.]: #
 
-- [ ] [1: Benchmark setup](#1-benchmark-setup)
-- [ ] [2: Description of working environment](#2-description-of-working-environment)
-- [ ] [3: Compiler setup and optimisations](#3-compiler-setup-and-optimisations)
-- [ ] [4: Computational complexity and scaling](#4-computational-complexity-and-scaling)
-- [ ] [5: Memory, storage and I/O](#5-memory-storage-and-io)
-- [ ] [6: Additional comments from submitter](#6-additional-comments-from-submitter)
-- [ ] [7: Pre-assessment outcome](#7-pre-assessment-outcome)
+- [1: Benchmark setup](#1-benchmark-setup)
+- [2: Description of working environment](#2-description-of-working-environment)
+- [3: Compiler setup and optimisations](#3-compiler-setup-and-optimisations)
+- [4: Computational complexity and scaling](#4-computational-complexity-and-scaling)
+- [5: Memory, storage and I/O](#5-memory-storage-and-io)
+- [6: Additional comments from submitter](#6-additional-comments-from-submitter)
 
 ## 1: Benchmark setup
 
@@ -50,12 +41,12 @@ Two regimes were explored in the benchmarking procedure; a metal system with a d
 <center>
 <figure>
    <img src="./figs/Fe.png" width="400">
-   <figcaption> 16 iron atoms in a periodic box (black lines)
+   <figcaption> 16 iron atoms in a periodic box (black lines).
 </figure>
 
 <figure>
    <img src="./figs/h2o_box.png" width="400">
-   <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines)
+   <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines).
 </figure>
 </center>
 
@@ -226,7 +217,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 [| Specification             | Per node                                                                     | ]: #
 [| ------------------------- | ---------------------------------------------------------------------------- | ]: #
 [| Processors                | 2 $\times$ IBM POWER9 CPU                                                      | ]: #
-[| GPU                       | 4 $\times$ [NVIDIA V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) | ]: #
+[| GPU                       | 4 $\times$ NVIDIA V100(https://www.nvidia.com/en-gb/data-center/tesla-v100/) | ]: #
 [| GPU Connect               | NVLink 2.0                                                                     | ]: #
 [| Clock speed per CPU       | 2.4 GHz                                                                     | ]: #
 [| Sockets                   | 2                                                                          | ]: #
@@ -265,8 +256,6 @@ The simplest FFT library to use in this case is the [Fastest Fourier Transform i
 
 [### Assessment tools]: #
 
-[> [!IMPORTANT]]: #
-[>]: #
 [> 1. Limit pre-assessment tools to those with very low runtime. Mostly just focus on whether the program is running as expected. Do not assess the results of the benchmark for correctness as that requires domain-specific knowledge.]: #
 [> 2. High level assessment tools and techniques which are expected to be useful, like global measures such as wall time.]: #
 [> 3. If additional information is provided, you can address the low-level assessment that may be required, and if you may require privileges on the system. Only address this section if you confident that enough domain information has been provided, with respect to scaling of the compute and memory with the problem size.]: #
@@ -285,7 +274,6 @@ The simplest FFT library to use in this case is the [Fastest Fourier Transform i
 
 ## 3: Compiler setup and optimisations
 
-[>[!IMPORTANT]]: #
 [> Based on the compilation information provided by submitter, comment on the following (where applicable):]: #
 [>]: #
 [> - package manager (e.g. `spack`)]: #
@@ -321,7 +309,7 @@ THe water box benchmark can be scaled by increasing the planewave cutoff energy 
 CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark. 
 [Additionally, the peak memory use for each benchmark and CPU are provided, compared to the estimated cost at full node saturation.]: #
 
-**Fe**
+**Fe 2x2x2**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
 --------------------------------------------|----------------------------------:|
 Model and support data                      | 1542.3                          |
@@ -450,10 +438,10 @@ As well as profiling the performance of hardware on HPC facilities using these b
    <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
->[!IMPORTANT]
-> Include any additional information from the submitter that does not fit the previous sections.
+[>[!IMPORTANT]]: #
+[> Include any additional information from the submitter that does not fit the previous sections.]: #
 
-## 7: Pre-assessment outcome
+[## 7: Pre-assessment outcome]: #
 
->[!IMPORTANT]
-> Indicate whether the assessment will proceed to the high-level stage. If the assessment is rejected here, comment on why and how to proceed.
+[>[!IMPORTANT]]: #
+[> Indicate whether the assessment will proceed to the high-level stage. If the assessment is rejected here, comment on why and how to proceed.]: #
