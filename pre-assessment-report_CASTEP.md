@@ -437,6 +437,10 @@ As well as profiling the performance of hardware on HPC facilities using these b
    <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
+#### Data Availability
+
+The data used to generate these plots is available as a `.csv` from the `data` directory. All raw data is also included as a tarball.
+
 [> Include any additional information from the submitter that does not fit the previous sections.]: #
 
 [## 7: Pre-assessment outcome]: #
