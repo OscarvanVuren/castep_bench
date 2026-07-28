@@ -132,7 +132,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 192 (96)                                                                        |
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>      |
 | RAM                       | 768 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Falcon GPU H200**
 | Specification             | Per node                                                                     |
@@ -146,7 +145,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 64 (32)                                                                        |
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>     |
 | RAM                       | 1000 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Falcon GPU H100**
 | Specification             | Per node                                                                     |
@@ -160,7 +158,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 64 (32)                                                                       |
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>                              |
 | RAM                       | 1000 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Falcon GPU L40S**
 | Specification             | Per node                                                                     |
@@ -174,7 +171,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 64 (32)                                                                        |
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>                              |
 | RAM                       | 1000 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Falcon GPU V100**
 | Specification             | Per node                                                                     |
@@ -188,7 +184,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 40 (20)                                                                       |
 | CPU Cache                 | <ul><li>L1d 1.3 MiB </li><li> L1i 1.3 MiB </li><li> L2 40 MiB </li><li> L3 55 MiB </li></ul>     |
 | RAM                       | 360 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Isambard3 MACS "ampere"**
 | Specification             | Per node                                                                     |
@@ -202,7 +197,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 32 (32)                                                                       |
 | CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 **Isambard3 MACS "hopper"**
 | Specification             | Per node                                                                     |
@@ -216,7 +210,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 32 (32)                                                                        |
 | CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 [**Bede POWER9** ]: #
 [IBM POWER9 CPUs have 4 hardware threads available per core. System summaries that do not contain an explicit thread count have one thread per CPU core. ]: #
@@ -243,7 +236,6 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Cores (per socket)        | 72 (72)                                                                   |
 | CPU Cache                 | <ul><li>L1d 9 MiB </li><li> L1i 9 MiB </li><li> L2 144 MiB </li><li> L3 228 MiB </li></ul>                            |
 | RAM                       | 480 GB DDR5                                                               |
-[| Local storage             | 480 GB SATA SSD                                                           |]: #
 
 [> Add details that you can obtain from the system or online information about sockets, NUMA regions, interconnects and cache sizes.]: #
 
