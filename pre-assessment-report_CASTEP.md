@@ -1,9 +1,9 @@
----
-License: Copyright © 2026 Durham University, SHAREing Project, MIT Licensed
-Creator: Andrew Naden
-Contributors: Andrew Naden; Ananya Gangopadhyay
-Summary: Pre-assessment report template document
----
+[---]: #
+[License: Copyright © 2026 Durham University, SHAREing Project, MIT Licensed]: #
+[Creator: Andrew Naden]: #
+[Contributors: Andrew Naden; Ananya Gangopadhyay]: #
+[Summary: Pre-assessment report template document]: #
+[---]: #
 
 # Pre-assessment of CASTEP for SHAREing Task 019
 
