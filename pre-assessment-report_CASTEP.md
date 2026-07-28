@@ -21,6 +21,7 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 ## Disclaimers
 
 1. This report is not a commentary on code quality, but an indicator of the quality of the current SHAREing testing methodology as of `31/07/2026`.
+
 [2. The pre-assessment is only a preliminary assessment of submission suitability and does not guarantee a full assessment. It will be provided to the submitter indicating if the full assessment will be undertaken or detail reasons for rejection.]: #
 
 ## Table of contents
@@ -94,7 +95,7 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 
 ### Reference architecture
 
-[> Add details of the reference architecture as provided by the submitter. Add any relevant details you may find regarding the architecture/system online. If the same system is accessible to you for the assessment, then indicate that here and detail the information in the [next section](#hardware-information).]: #
+[> Add details of the reference architecture as provided by the submitter. Add any relevant details you may find regarding the architecture/system online. If the same system is accessible to you for the assessment, then indicate that here and detail the information in the next section(#hardware-information).]: #
 
 ## 2: Description of working environment
 
@@ -297,16 +298,15 @@ For the benchmarks presented thus far, the limits of strong scaling are reached.
 [> Comment on the possibility of scaling the problem up and down, both in strong (changing number of work units e.g. CPUs, but keeping the problem size constant) and weak (changing the problem size but keeping number of work units the same) contexts. Add any information provided by the submitter regarding the scaling of _computation (i.e. work)_, _memory_ and _execution time_ as the problem size or work units are increased.]: #
 [> If there is existing scaling information (graphs or raw data) available, attach it to this report or add links to access it.]: #
 
-In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2x2x2 to 4x4x4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended.
+In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2x2x2 to 4x4x4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. This will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
 
-THe water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword.
+THe water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
 
 ## 5: Memory, storage and I/O
 
 [> Comment on the expected in memory size of the program at runtime, including data. An estimate of this information should be provided as part of the submission. For jobs submitted to Hamilton as part of early assessment, the Hamilton dashboard can be used to gauge memory usage (see Hamilton Portal Performance(https://www.durham.ac.uk/research/institutes-and-centres/advanced-research-computing/hamilton-supercomputer/usage/portal/performance/)).]: #
 
-CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark. 
-[Additionally, the peak memory use for each benchmark and CPU are provided, compared to the estimated cost at full node saturation.]: #
+CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark.
 
 **Fe 2x2x2**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
@@ -437,10 +437,8 @@ As well as profiling the performance of hardware on HPC facilities using these b
    <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
-[>[!IMPORTANT]]: #
 [> Include any additional information from the submitter that does not fit the previous sections.]: #
 
 [## 7: Pre-assessment outcome]: #
 
-[>[!IMPORTANT]]: #
 [> Indicate whether the assessment will proceed to the high-level stage. If the assessment is rejected here, comment on why and how to proceed.]: #
