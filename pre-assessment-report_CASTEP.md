@@ -196,7 +196,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Clock speed per CPU       | 4.0 GHz                                                                     |
 | Sockets                   | 1                                                                          |
 | Cores (per socket)        | 32 (32)                                                                       |
-| CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
+| CPU Cache                 | <ul><li>L1d 1 MiB </li><li> L1i 1 MiB </li><li> L2 16 MiB </li><li> L3 256 MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
 
 **Isambard3 MACS "hopper"**
@@ -209,7 +209,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | Clock speed per CPU       | 4.0 GHz                                                                     |
 | Sockets                   | 1                                                                          |
 | Cores (per socket)        | 32 (32)                                                                        |
-| CPU Cache                 | <ul><li>L1d XX MiB </li><li> L1i XX MiB </li><li> L2 XX MiB </li><li> L3 XX MiB </li></ul>     |
+| CPU Cache                 | <ul><li>L1d 1 MiB </li><li> L1i 1 MiB </li><li> L2 16 MiB </li><li> L3 256 MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
 
 [**Bede POWER9** ]: #
