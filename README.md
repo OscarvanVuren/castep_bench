@@ -1,0 +1,1 @@
+This repository contains the data, compilation scripts and report related to the benchmarking of CASTEP for [Task 019](https://shareing-dri.github.io/tasks/019_castep/) of the SHAREing Project. 
