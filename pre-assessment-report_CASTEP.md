@@ -117,7 +117,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
    [* IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.]: #
-   * NVIDIA Grace-Hopper Superchip. NVIDIA Grace CPU, 72 cores per node. 1 GH200 GPU per node. 8 nodes available.
+   * NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes available.
 
 [> Provide processor, memory and cache information as well as interconnect information (e.g. Infiniband, NVlink - if across multiple nodes) of the system the assessment is to be performed on.]: #
 
@@ -441,7 +441,7 @@ Raw timing data for the CPU only performance of various architectures, alongside
 As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2x2x2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured; comparing gfortran+openMPI+openBLAs+FFTW3 to an Intel stack of ifort+Intel MPI+MKL+MKL_FFT. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (nvfortran+openMPI+NVPL+FFTW3).
 
 <figure>
-   <img src="./figs/plots/compiler_testing.png" width="600">
+   <img src="./figs/plots/compiler_testing.png" width="1000">
    <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
