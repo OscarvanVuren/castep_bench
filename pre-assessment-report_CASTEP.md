@@ -310,7 +310,9 @@ For the benchmarks presented thus far, the limits of strong scaling are reached.
 [> Comment on the possibility of scaling the problem up and down, both in strong (changing number of work units e.g. CPUs, but keeping the problem size constant) and weak (changing the problem size but keeping number of work units the same) contexts. Add any information provided by the submitter regarding the scaling of _computation (i.e. work)_, _memory_ and _execution time_ as the problem size or work units are increased.]: #
 [> If there is existing scaling information (graphs or raw data) available, attach it to this report or add links to access it.]: #
 
-The `<parameter>` value can be varied to increase the problem size for scaling tests.
+In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2x2x2 to 4x4x4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended.
+
+THe water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword.
 
 ## 5: Memory, storage and I/O
 
@@ -361,8 +363,6 @@ which will write a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in
 
 [> Comment on the expected output, including when the I/O is performed, and your observations when running the benchmark. This output should be minimal when testing the working performance of the program rather than the I/O saturation. Excessive I/O will result in an inaccurate performance assessment and may result in rejection.]: #
 
-The benchmark writes to the console output every `<n>` iterations [as indicated by the submitter](#fetch-and-run-benchmark).
-
 ## 6: Additional comments from submitter
 
 ### Benchmarking Data for CASTEP
@@ -371,18 +371,18 @@ Included in this section are the outcomes from preliminary benchmarking performe
 
 #### CPU Benchmarking
 
-**Fe 2x2**
+**Fe 2x2x2**
 
 Raw timing data for the CPU only performance of various architectures, alongside strong scaling up to 32 MPI processes are presented here.
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2x2 benchmark.
+   <figcaption> Raw calculation timing data for the Fe 2x2x2 benchmark.
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the Fe 2x2 benchmark, up to 32 MPI processes.
+   <figcaption> Strong scaling of the Fe 2x2x2 benchmark, up to 32 MPI processes.
 </figure>
 
 
@@ -400,21 +400,28 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 #### GPU Benchmarking
 
-**Fe 2x2**
+**Fe 2x2x2**
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2x2 benchmark, when using GPU acceleration.
+   <figcaption> Raw calculation timing data for the Fe 2x2x2 benchmark, when using GPU acceleration.
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the Fe 2x2 benchmark.
+   <figcaption> Speedup from CPU by using a GPU for the Fe 2x2x2 benchmark.
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the Fe 2x2 benchmark. Higher is better.
+   <figcaption> Computational cost saving from using a GPU for the Fe 2x2x2 benchmark. Higher is better.
+</figure>
+
+**Fe 4x4x4**
+
+<figure>
+   <img src="./figs/plots/multiGPU_testing.png" width="600">
+   <figcaption> Calculation timing data for an expanded Fe 4x4x4 benchmark, when using GPU acceleration with multiple GPUs.
 </figure>
 
 **Waterbox**
