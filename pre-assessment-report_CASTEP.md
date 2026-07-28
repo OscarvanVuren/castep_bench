@@ -263,7 +263,7 @@ CASTEP supports multiple implementations of BLAS and LAPACK: [flexiblas](https:/
 
 The simplest FFT library to use in this case is the [Fastest Fourier Transform in the West (FFTW)](https://www.fftw.org/) library, which implements a performant and portable FFT algorithm. Another supported FFT library is included in the Intel oneAPI Maths Kernel Library (MKL), however using this FFT requires using the MKL versions of BLAS and LAPACK.
 
-### Assessment tools
+[### Assessment tools]: #
 
 [> [!IMPORTANT]]: #
 [>]: #
@@ -271,17 +271,17 @@ The simplest FFT library to use in this case is the [Fastest Fourier Transform i
 [> 2. High level assessment tools and techniques which are expected to be useful, like global measures such as wall time.]: #
 [> 3. If additional information is provided, you can address the low-level assessment that may be required, and if you may require privileges on the system. Only address this section if you confident that enough domain information has been provided, with respect to scaling of the compute and memory with the problem size.]: #
 
-1. Pre-assessment:
-   - `<tool_1>`
-   - `<tool_2>`
+[1. Pre-assessment:]:#
+[   - `<tool_1>`]:#
+[   - `<tool_2>`]:#
 
-2. High-level assessment:
-   - `<tool_1>`
-   - `<tool_2>`
+[2. High-level assessment:]:#
+[   - `<tool_1>`]:#
+[   - `<tool_2>`]:#
 
-3. Low-level assessment:
-   - `<tool_1>`
-   - `<tool_2>`
+[3. Low-level assessment:]:#
+[   - `<tool_1>`]:#
+[   - `<tool_2>`]:#
 
 ## 3: Compiler setup and optimisations
 
@@ -443,8 +443,12 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 #### Compiler Testing
 
-As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured; comparing gfortran+openMPI+openBLAs+FFTW3 to an Intel stack of ifort+Intel MPI+MKL+MKL_FFT. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (nvfortran+openMPI+NVPL+FFTW3).
+As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2x2x2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured; comparing gfortran+openMPI+openBLAs+FFTW3 to an Intel stack of ifort+Intel MPI+MKL+MKL_FFT. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (nvfortran+openMPI+NVPL+FFTW3).
 
+<figure>
+   <img src="./figs/plots/compiler_testing.png" width="600">
+   <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+</figure>
 
 >[!IMPORTANT]
 > Include any additional information from the submitter that does not fit the previous sections.
