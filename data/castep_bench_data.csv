@@ -1,0 +1,178 @@
+experiment,benchmark,cpu,n_cpu_procs,gpu,n_gpus,compiler,maths_lib,fft_lib,time
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,1,,0,gfortran,openblas,fftw3,2522.52
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,16,,0,gfortran,openblas,fftw3,290.29
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,32,,0,gfortran,openblas,fftw3,194.14
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,64,,0,gfortran,openblas,fftw3,140.67
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,96,,0,gfortran,openblas,fftw3,77.6
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,96,,0,gfortran,openblas,fftw3,78.61
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,128,,0,gfortran,openblas,fftw3,65.31
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,160,,0,gfortran,openblas,fftw3,62.13
+cpu profiling,Fe 2x2x2,AMD Epyc Genoa 9654,192,,0,gfortran,openblas,fftw3,42.14
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,1,,0,gfortran,Cray LibSci,fftw3,2753.08
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,2,,0,gfortran,Cray LibSci,fftw3,2407.06
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,4,,0,gfortran,Cray LibSci,fftw3,1331.37
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,8,,0,gfortran,Cray LibSci,fftw3,885.64
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,8,,0,gfortran,Cray LibSci,fftw3,890.23
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,,0,gfortran,Cray LibSci,fftw3,755.38
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,,0,gfortran,Cray LibSci,fftw3,758.13
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,,0,gfortran,Cray LibSci,fftw3,753.65
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,24,,0,gfortran,Cray LibSci,fftw3,423.32
+cpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,32,,0,gfortran,Cray LibSci,fftw3,395.5
+cpu profiling,Fe 2x2x2,NVIDIA Grace,1,,0,gfortran,openblas,fftw3,4033.05
+cpu profiling,Fe 2x2x2,NVIDIA Grace,9,,0,gfortran,openblas,fftw3,579.64
+cpu profiling,Fe 2x2x2,NVIDIA Grace,16,,0,gfortran,openblas,fftw3,309.19
+cpu profiling,Fe 2x2x2,NVIDIA Grace,24,,0,gfortran,openblas,fftw3,205.96
+cpu profiling,Fe 2x2x2,NVIDIA Grace,32,,0,gfortran,openblas,fftw3,172
+cpu profiling,Fe 2x2x2,NVIDIA Grace,32,,0,gfortran,openblas,fftw3,171.21
+cpu profiling,Fe 2x2x2,NVIDIA Grace,48,,0,gfortran,openblas,fftw3,135.89
+cpu profiling,Fe 2x2x2,NVIDIA Grace,48,,0,gfortran,openblas,fftw3,136.6
+cpu profiling,Fe 2x2x2,NVIDIA Grace,64,,0,gfortran,openblas,fftw3,139.85
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,1,,0,gfortran,openblas,fftw3,1999.27
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,8,,0,gfortran,openblas,fftw3,314.75
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,16,,0,gfortran,openblas,fftw3,248.85
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,16,,0,gfortran,openblas,fftw3,272.31
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,32,,0,gfortran,openblas,fftw3,153.5
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,32,,0,gfortran,openblas,fftw3,152.62
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,32,,0,gfortran,openblas,fftw3,153.08
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,56,,0,gfortran,openblas,fftw3,97.11
+cpu profiling,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,64,,0,gfortran,openblas,fftw3,96.91
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,1,,0,gfortran,openblas,fftw3,2505.38
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,8,,0,gfortran,openblas,fftw3,374.08
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,16,,0,gfortran,openblas,fftw3,237.33
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,16,,0,gfortran,openblas,fftw3,262.34
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,32,,0,gfortran,openblas,fftw3,182.02
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,32,,0,gfortran,openblas,fftw3,182.32
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,32,,0,gfortran,openblas,fftw3,181.91
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,56,,0,gfortran,openblas,fftw3,128.1
+cpu profiling,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,64,,0,gfortran,openblas,fftw3,152.3
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,1,,0,gfortran,openblas,fftw3,3031.79
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,5,,0,gfortran,openblas,fftw3,818.99
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,10,,0,gfortran,openblas,fftw3,543.88
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,12,,0,gfortran,openblas,fftw3,475.05
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,16,,0,gfortran,openblas,fftw3,417.32
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,24,,0,gfortran,openblas,fftw3,365.1
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,24,,0,gfortran,openblas,fftw3,361.26
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,32,,0,gfortran,openblas,fftw3,253.25
+cpu profiling,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,32,,0,gfortran,openblas,fftw3,262.02
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,1,,0,gfortran,openblas,fftw3,9114.14
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,24,,0,gfortran,openblas,fftw3,880.55
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,48,,0,gfortran,openblas,fftw3,581.75
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,72,,0,gfortran,openblas,fftw3,458.14
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,96,,0,gfortran,openblas,fftw3,401.52
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,120,,0,gfortran,openblas,fftw3,381.51
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,144,,0,gfortran,openblas,fftw3,392.81
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,168,,0,gfortran,openblas,fftw3,377.01
+cpu profiling,H2O_box,AMD Epyc Genoa 9654,192,,0,gfortran,openblas,fftw3,372.83
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,1,,0,gfortran,Cray LibSci,fftw3,9569.71
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,2,,0,gfortran,Cray LibSci,fftw3,9689.86
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,4,,0,gfortran,Cray LibSci,fftw3,5899.95
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,8,,0,gfortran,Cray LibSci,fftw3,4406.15
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,16,,0,gfortran,Cray LibSci,fftw3,3233.91
+cpu profiling,H2O_box,AMD EPYC Milan 7543P CPU,32,,0,gfortran,Cray LibSci,fftw3,1972.55
+cpu profiling,H2O_box,NVIDIA Grace,1,,0,gfortran,openblas,fftw3,13818.79
+cpu profiling,H2O_box,NVIDIA Grace,9,,0,gfortran,openblas,fftw3,1725.09
+cpu profiling,H2O_box,NVIDIA Grace,18,,0,gfortran,openblas,fftw3,1098.05
+cpu profiling,H2O_box,NVIDIA Grace,27,,0,gfortran,openblas,fftw3,800.15
+cpu profiling,H2O_box,NVIDIA Grace,36,,0,gfortran,openblas,fftw3,671.87
+cpu profiling,H2O_box,NVIDIA Grace,45,,0,gfortran,openblas,fftw3,603.21
+cpu profiling,H2O_box,NVIDIA Grace,54,,0,gfortran,openblas,fftw3,653.41
+cpu profiling,H2O_box,NVIDIA Grace,63,,0,gfortran,openblas,fftw3,542.33
+cpu profiling,H2O_box,NVIDIA Grace,72,,0,gfortran,openblas,fftw3,635.85
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,1,,0,gfortran,openblas,fftw3,6972.55
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,8,,0,gfortran,openblas,fftw3,1357.5
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,16,,0,gfortran,openblas,fftw3,1013.94
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,24,,0,gfortran,openblas,fftw3,731.55
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,32,,0,gfortran,openblas,fftw3,697.22
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,40,,0,gfortran,openblas,fftw3,537.75
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,48,,0,gfortran,openblas,fftw3,446.32
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,56,,0,gfortran,openblas,fftw3,410.69
+cpu profiling,H2O_box,Intel Xeon (Emerald Rapids) 6530 CPU,64,,0,gfortran,openblas,fftw3,417.64
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,1,,0,gfortran,openblas,fftw3,9225.52
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,8,,0,gfortran,openblas,fftw3,1626.12
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,16,,0,gfortran,openblas,fftw3,977.97
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,24,,0,gfortran,openblas,fftw3,806.91
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,32,,0,gfortran,openblas,fftw3,873.22
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,40,,0,gfortran,openblas,fftw3,671.4
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,48,,0,gfortran,openblas,fftw3,544.77
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,56,,0,gfortran,openblas,fftw3,484.66
+cpu profiling,H2O_box,Intel Xeon (Sapphire Rapids) 6430 CPU,64,,0,gfortran,openblas,fftw3,540.1
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,1,,0,gfortran,openblas,fftw3,11071.94
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,5,,0,gfortran,openblas,fftw3,4023.37
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,10,,0,gfortran,openblas,fftw3,2174.2
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,15,,0,gfortran,openblas,fftw3,1719.1
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,20,,0,gfortran,openblas,fftw3,1704.21
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,25,,0,gfortran,openblas,fftw3,1341.65
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,30,,0,gfortran,openblas,fftw3,1183.21
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,35,,0,gfortran,openblas,fftw3,1044.1
+cpu profiling,H2O_box,Intel Xeon (Cascade Lake) 6248 CPU,40,,0,gfortran,openblas,fftw3,1040.18
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,1,nvfortran,nvpl,fftw3,754
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,2,NVIDIA A100,1,nvfortran,nvpl,fftw3,605.4
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,4,NVIDIA A100,1,nvfortran,nvpl,fftw3,508.18
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,1,nvfortran,nvpl,fftw3,525.03
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,1,nvfortran,nvpl,fftw3,538.26
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,1,nvfortran,nvpl,fftw3,550.64
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,1,nvfortran,nvpl,fftw3,290.28
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,2,nvfortran,nvpl,fftw3,777.96
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,2,NVIDIA A100,2,nvfortran,nvpl,fftw3,618.38
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,4,NVIDIA A100,2,nvfortran,nvpl,fftw3,510.47
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,2,nvfortran,nvpl,fftw3,523.46
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,2,nvfortran,nvpl,fftw3,547.71
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,2,nvfortran,nvpl,fftw3,548.47
+gpu profiling,Fe 2x2x2,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,2,nvfortran,nvpl,fftw3,266.85
+gpu profiling,Fe 2x2x2,NVIDIA Grace,1,NVIDIA H100,1,nvfortran,nvpl,fftw3,415.56
+gpu profiling,Fe 2x2x2,NVIDIA Grace,9,NVIDIA H100,1,nvfortran,nvpl,fftw3,76.26
+gpu profiling,Fe 2x2x2,NVIDIA Grace,16,NVIDIA H100,1,nvfortran,nvpl,fftw3,55.28
+gpu profiling,Fe 2x2x2,NVIDIA Grace,24,NVIDIA H100,1,nvfortran,nvpl,fftw3,136.66
+gpu profiling,Fe 2x2x2,NVIDIA Grace,32,NVIDIA H100,1,nvfortran,nvpl,fftw3,50.02
+gpu profiling,Fe 2x2x2,NVIDIA Grace,32,NVIDIA H100,1,nvfortran,nvpl,fftw3,49.02
+gpu profiling,Fe 2x2x2,NVIDIA Grace,48,NVIDIA H100,1,nvfortran,nvpl,fftw3,106.88
+gpu profiling,Fe 2x2x2,NVIDIA Grace,48,NVIDIA H100,1,nvfortran,nvpl,fftw3,107.43
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,1,nvfortran,nvpl,fftw3,2087.75
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,2,NVIDIA A100,1,nvfortran,nvpl,fftw3,4295.84
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,4,NVIDIA A100,1,nvfortran,nvpl,fftw3,3833.05
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,1,nvfortran,nvpl,fftw3,3514.22
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,1,nvfortran,nvpl,fftw3,2147.76
+gpu profiling,H2O_box,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,1,nvfortran,nvpl,fftw3,1849.27
+gpu profiling,H2O_box,NVIDIA Grace,1,NVIDIA H100,1,nvfortran,nvpl,fftw3,1607.23
+gpu profiling,H2O_box,NVIDIA Grace,9,NVIDIA H100,1,nvfortran,nvpl,fftw3,899.32
+gpu profiling,H2O_box,NVIDIA Grace,18,NVIDIA H100,1,nvfortran,nvpl,fftw3,696.45
+gpu profiling,H2O_box,NVIDIA Grace,27,NVIDIA H100,1,nvfortran,nvpl,fftw3,530.94
+gpu profiling,H2O_box,NVIDIA Grace,36,NVIDIA H100,1,nvfortran,nvpl,fftw3,566.91
+gpu profiling,H2O_box,NVIDIA Grace,45,NVIDIA H100,1,nvfortran,nvpl,fftw3,468.72
+gpu profiling,H2O_box,NVIDIA Grace,54,NVIDIA H100,1,nvfortran,nvpl,fftw3,553.68
+compiler testing,Fe 2x2x2,AMD Epyc Genoa 9654,16,,0,gfortran,openblas,fftw3,329.19
+compiler testing,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,,0,gfortran,openblas,fftw3,222.72
+compiler testing,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,16,,0,gfortran,openblas,fftw3,248.85
+compiler testing,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,16,,0,gfortran,openblas,fftw3,237.33
+compiler testing,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,16,,0,gfortran,openblas,fftw3,413.64
+compiler testing,Fe 2x2x2,NVIDIA Grace,16,,0,gfortran,openblas,fftw3,307.41
+compiler testing,Fe 2x2x2,AMD Epyc Genoa 9654,16,,0,ifort,mkl,mkl,204.25
+compiler testing,Fe 2x2x2,Intel Xeon (Emerald Rapids) 6530 CPU,16,,0,ifort,mkl,mkl,137.62
+compiler testing,Fe 2x2x2,Intel Xeon (Sapphire Rapids) 6430 CPU,16,,0,ifort,mkl,mkl,191.47
+compiler testing,Fe 2x2x2,Intel Xeon (Cascade Lake) 6248 CPU,16,,0,ifort,mkl,mkl,254.83
+compiler testing,Fe 2x2x2,AMD Epyc Genoa 9654,16,,0,nvfortran,nvpl,fftw3,183.46
+compiler testing,Fe 2x2x2,AMD Epyc Milan 7543P CPU,16,,0,nvfortran,nvpl,fftw3,231.67
+compiler testing,Fe 2x2x2,Intel Xeon 6530,16,,0,nvfortran,nvpl,fftw3,304.85
+compiler testing,Fe 2x2x2,Intel Xeon 6430,16,,0,nvfortran,nvpl,fftw3,210.94
+compiler testing,Fe 2x2x2,Intel Xeon 6248,16,,0,nvfortran,nvpl,fftw3,294.05
+compiler testing,Fe 2x2x2,NVIDIA Grace,16,,0,nvfortran,nvpl,fftw3,261.33
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,1,nvfortran,nvpl,fftw3,4241.39
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,1,nvfortran,nvpl,fftw3,797.14
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,1,nvfortran,nvpl,fftw3,637.93
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,1,nvfortran,nvpl,fftw3,495.79
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,1,nvfortran,nvpl,fftw3,500.94
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,2,nvfortran,nvpl,fftw3,4981.59
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,2,nvfortran,nvpl,fftw3,768.4
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,2,nvfortran,nvpl,fftw3,574.6
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,2,nvfortran,nvpl,fftw3,491.45
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,2,nvfortran,nvpl,fftw3,515.96
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,3,nvfortran,nvpl,fftw3,960.88
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,3,nvfortran,nvpl,fftw3,505.54
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,3,nvfortran,nvpl,fftw3,523.5
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,3,nvfortran,nvpl,fftw3,490.74
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,3,nvfortran,nvpl,fftw3,460.38
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,1,NVIDIA A100,4,nvfortran,nvpl,fftw3,947.48
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,8,NVIDIA A100,4,nvfortran,nvpl,fftw3,495.41
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,4,nvfortran,nvpl,fftw3,479.54
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,16,NVIDIA A100,4,nvfortran,nvpl,fftw3,438.44
+MultiGPU scaling,Fe 4x4x4,AMD Epyc Milan 7543P CPU,32,NVIDIA A100,4,nvfortran,nvpl,fftw3,415.82
