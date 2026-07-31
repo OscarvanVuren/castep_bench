@@ -5,17 +5,31 @@
 [Summary: Pre-assessment report template document]: #
 [---]: #
 
+[Initialise a css variable to auto number figures]:#
+
+<style>
+    /* initialise the counter */
+    body { counter-reset: figureCounter; }
+    /* increment the counter for every instance of a figure even if it doesn't have a caption */
+    figure { counter-increment: figureCounter; }
+    /* prepend the counter to the figcaption content */
+    figure figcaption:before {
+        content: "Figure " counter(figureCounter) ": "
+    }
+</style>
+
+
 # Pre-assessment of CASTEP for SHAREing Task 019
 
 ## Assessment objective
 
 [> Is this a test submission, internal review or external review? If it is part of a larger project or funding, add that information here. You may also include your (the assessor's) name, optionally with contact details.]: #
 
-This is a pre-assessment study of the performance of the planewave Density Functional Theory (DFT) code CASTEP, performed by Oscar van Vuren at Cardiff University, in collaboration with Phil Hasnip of the University of York and Martyn Guest of ARCCA. CASTEP allows for the accurate simulation of the electronic structure of condensed matter, to scales of hundreds to thousands of atoms. The CASTEP code has seen historical use for benchmarking flagship HPC facilities in the UK, including HECToR, ARCHER and ARCHER2, and sees contemporary use in condensed matter simulations across the globe.
+This is a pre-assessment study of the performance of the planewave Density Functional Theory (DFT) code CASTEP, performed by Oscar van Vuren at Cardiff University, in collaboration with Gabriel Bramley and Andrew Logsdail (Cardiff Universtiy), Phil Hasnip of the University of York and Martyn Guest of ARCCA. CASTEP allows for the accurate simulation of the electronic structure of condensed matter, to scales of hundreds to thousands of atoms. The CASTEP code has seen historical use for benchmarking flagship HPC facilities in the UK, including [HECToR](http://www.hector.ac.uk/cse/reports/castep_m.pdf), [ARCHER](https://github.com/hpc-uk/archer-benchmarks/tree/main/apps/CASTEP) and [ARCHER2](https://www.archer2.ac.uk/about/hardware.html), and sees contemporary use in condensed matter simulations across the globe.
 
-The associated SHAREing work package for this pre assessment of CASTEP is WP 019. The objective of this assessment is to provide SHAREing with a preliminary set of performance data, benchmarks and compilation instructions to allow for a more detailed, rigorous benchmark of CASTEP in future by SHAREing.
+The associated SHAREing work package for this pre assessment of CASTEP is [WP 019](https://shareing-dri.github.io/tasks/019_castep/). The objective of this assessment is to provide a preliminary set of performance data, benchmarks and compilation instructions to allow for a more detailed, rigorous benchmark of CASTEP in future by SHAREing.
 
-CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads on three different HPC architectures
+CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads on three different HPC architectures.
 
 
 ## Disclaimers
@@ -37,17 +51,17 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 
 ## 1: Benchmark setup
 
-Two regimes were explored in the benchmarking procedure; a metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 x 20 x 20 &angst; ) sampled at the gamma point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
+Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 x 20 x 20 &angst; ) sampled at the &Gamma;-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
 
 <center>
 <figure>
    <img src="./figs/Fe.png" width="400">
-   <figcaption> 16 iron atoms in a periodic box (black lines).
+   <figcaption> 16 iron atoms in a periodic box (black lines). </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/h2o_box.png" width="400">
-   <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines).
+   <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
 </figure>
 </center>
 
@@ -57,9 +71,9 @@ Two regimes were explored in the benchmarking procedure; a metal system with a d
 
 [> Provide commands to fetch and build the program. Include version numbers where possible.]: #
 
-CASTEP is licensed by STFC, providing a free of cost license for academic use. This is different from the commercial license for CASTEP, available from BIOVIA. To gain a license for the academic use of CASTEP, a request may be made at <https://licences.stfc.ac.uk/product/castep>. The source code of CASTEP version 26 may then be downloaded and installed using the Make scripts included in the `scripts` directory.
+CASTEP is licensed by STFC, providing a free of cost license for academic use. This is different from the commercial license for CASTEP, available from BIOVIA. To gain a license for the academic use of CASTEP, a request may be made at <https://licences.stfc.ac.uk/product/castep>. The source code of CASTEP version 26 may then be downloaded from STFC and installed using the `make` scripts included in the `scripts` directory of this repository.
 
-The 'scripts' directory contains shell scripts to install CASTEP for CPU only and GPU accelerated applications. These scripts require user input to define a correct combination of compilers and libraries. Notably, to build GPU accelerated code, the NVIDIA Fortran and C compilers from the NVIDIA HPC SDK must be used to build CASTEP. Combination of maths libraries, FFT libraries and compilers are allowed, though the use of the Intel MKL FFT library requires the use of the Intel MKL maths libraries. When compiling using the included scripts, make will request user input for the location of the FFT and maths libraries. If the libraries are in the PATH, the user can leave this prompt empty. Optionally, the location of the libraries can be specified by including the make directives MATHLIBDIR and FFTLIBDIR in the shell script, and uncommenting the relevant lines in the CASTEP top level `Makefile`. 
+The `scripts` directory contains shell scripts to install CASTEP for CPU only and GPU accelerated applications. These scripts require user input to define a correct combination of compilers and libraries. Notably, to build GPU accelerated code, the NVIDIA Fortran and C compilers from the NVIDIA HPC SDK must be used to build CASTEP. Combination of maths libraries, FFT libraries and compilers are allowed, though the use of the Intel MKL FFT library requires the use of the Intel MKL maths libraries. When compiling using the included scripts, `make` will request user input for the location of the FFT and maths libraries. If the libraries are in the `PATH` environment variable, the user can leave this prompt empty by returning an empty line. Optionally, the location of the libraries can be specified by including the make directives `MATHLIBDIR` and `FFTLIBDIR` in the installation shell script from this repository, and uncommenting the relevant lines in the CASTEP top level `Makefile`. 
 
 ### Fetch and run benchmark
 
@@ -70,27 +84,26 @@ The benchmarks for this pre-assessment of CASTEP can be obtained from:
 ```bash
 git clone https://github.com/OscarvanVuren/castep_bench.git
 ```
-This repository contains the benchmarks in `benchmarks`, as well as the compilation scripts for building both CPU and GPU accelerated binaries of CASTEP in `scripts`. Additionally, reference data for the benchmarks performed as part of this pre-assessment are available in the `data` directory.
+This repository contains the benchmark input files in the `benchmarks` directory, as well as the compilation scripts for building both CPU only and GPU accelerated binaries of CASTEP in the `scripts` directory. Additionally, reference data for the benchmarks performed as part of this pre-assessment are available in the `data` directory.
 
 [> Provide instructions on how to run the benchmark and indicate the expected I/O.]: #
 
-To run the benchmark, the compiled binary for CASTEP is called using 'mpirun' or 'srun' depending on the test platform. A seedfile name must be provided; "Fe" or "H2O_box" in the case of the iron or water box testcases, respectively. The overall syntax for a CASTEP run is, therefore:
+To run the benchmark, the compiled binary for CASTEP is called using `mpirun` or `srun` depending on the test platform. A seedfile name must be provided; "Fe" or "H2O_box" in the case of the iron or water box testcases, respectively. The overall syntax for a CASTEP run is, therefore:
 
 ```bash
 export SEEDNAME=<seed_name>
 export EXECUTABLE=<path/to/castep.mpi>
 mpirun -np <n_tasks> $EXECUTABLE $SEEDNAME 
 ```
-OR
+when using MPI natively, or
 ```bash
 srun -n <n_slurm_tasks> $EXECUTABLE $SEEDNAME
 ```
-
-This will perform a CASTEP run using the number of tasks specified.
+in a Slurm queue system. In both cases, these commands will perform a CASTEP run using the number of tasks (`n_tasks` or `n_slurm_tasks`) specified.
 > [!NOTE]
-> CASTEP will not always run with the number of tasks specified, but will instead use the most tasks possible when parallelising over **k**-points. The Fe benchmark has a total of 32 **k**-points, thus using multiples of 32 tasks, even when more have been requested. When using very few MPI tasks, this behaviour is ignored to ensure optimal performance at low core counts.
+> CASTEP will not always run with the number of tasks specified, but will instead use the most tasks possible when parallelising over **k**-points. The Fe benchmark has a total of 32 **k**-points, thus optimally uses multiples of 32 tasks. When using very few MPI tasks, this automatic optimisation is ignored to ensure performance at low core counts.
 
-The `SEEDNAME` used in running the benchmarks determines the output filenames. Most file IO has been disabled, however CASTEP will generate two files during execution: a`SEEDNAME.castep` output file and a `.usp` on the fly generated (OTFG) pseudopotential for each species in the `SEEDNAME.cell` file.
+The `SEEDNAME` used in running the benchmarks determines the output filenames. Most file I/O has been disabled; however, CASTEP will generate two files during execution: a`SEEDNAME.castep` output file, containing calculation data and timings, and a `.usp` file containing the on-the-fly-generated (OTFG) pseudopotential for each species in the `SEEDNAME.cell` file.
 
 
 ### Reference architecture
@@ -103,22 +116,24 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 
 [> Add the hardware information used, including where applicable the queue information if necessary. Comment on expected normal limit for the hardware, e.g. size of the largest interconnected set of nodes, or memory limitations. Compare with the reference architecture (if different), indicating any issues you may expect to see due to the differences.]: #
 
-Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C' for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
+Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C` for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
 
 1. The [Falcon](https://wiki.arcca.cf.ac.uk/index.php/The_Falcon_Supercomputer) cluster at Cardiff University.
-   * AMD Epyc Genoa 9654 CPU. 192 cores per node. 30 nodes total across partitions.
-   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node available.
-   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node available.
-   * Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes available.
-   * Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes available
+   * AMD Epyc Genoa 9654 CPU. 192 cores per node. 30 nodes.
+   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
+   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
+   * Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
+   * Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
 
 2. The [Isambard3 Multi-Architecture Comparison System (MACS)](https://docs.isambard.ac.uk), hosted by Bristol University.
-   * AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes available.
-   * AMD EPYC Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node available.
+   * AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
+   * AMD EPYC Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
+
    [* IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.]: #
-   * NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes available.
+
+   * NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes.
 
 [> Provide processor, memory and cache information as well as interconnect information (e.g. Infiniband, NVlink - if across multiple nodes) of the system the assessment is to be performed on.]: #
 
@@ -248,11 +263,11 @@ CASTEP depends on three core maths libraries: LAPACK, BLAS and an FFT library.
 
 **LAPACK and BLAS**
 
-CASTEP supports multiple implementations of BLAS and LAPACK: [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas),[openblas](https://www.openmathlib.org/OpenBLAS/docs/),[mkl](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html),[blis](https://github.com/flame/blis),[libflame](https://github.com/flame/libflame),[aocl](https://www.amd.com/en/developer/aocl.html),[atlas](https://math-atlas.sourceforge.net/), [essl](https://www.ibm.com/docs/en/aix/7.1.0?topic=techniques-calling-blas-essl-libraries), [scilib](https://cpe.ext.hpe.com/docs/latest/csml/cray_libsci.html), default, generic. Links for more information have been provided where possible. The Flame library (libflame) contains LAPACK only, and therefore must be paired with a BLAS library (BLIS is recommended). Options "default" and "generic" are synonyms and specify no particular BLAS and LAPACK library, searching for `libblas` and `liblapack` in the `PATH`.
+CASTEP supports multiple implementations of BLAS and LAPACK: [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas), [openblas](https://www.openmathlib.org/OpenBLAS/docs/), [mkl](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html), [blis](https://github.com/flame/blis), [libflame](https://github.com/flame/libflame), [aocl](https://www.amd.com/en/developer/aocl.html), [atlas](https://math-atlas.sourceforge.net/), [essl](https://www.ibm.com/docs/en/aix/7.1.0?topic=techniques-calling-blas-essl-libraries), [scilib](https://cpe.ext.hpe.com/docs/latest/csml/cray_libsci.html), default, generic. Links for more information have been provided where possible. The Flame library (libflame) contains LAPACK only, and therefore must be paired with a BLAS library (BLIS is recommended). "default" and "generic" options are synonyms and specify no particular BLAS and LAPACK library, and instead search for `libblas` and `liblapack` in the `PATH`.
 
 **FFT Library**
 
-The simplest FFT library to use in this case is the [Fastest Fourier Transform in the West (FFTW)](https://www.fftw.org/) library, which implements a performant and portable FFT algorithm. Another supported FFT library is included in the Intel oneAPI Maths Kernel Library (MKL), however using this FFT requires using the MKL versions of BLAS and LAPACK.
+The simplest FFT library to use with CASTEP is the [Fastest Fourier Transform in the West (FFTW)](https://www.fftw.org/) library, which implements a performant and portable FFT algorithm. Another supported FFT library is included in the Intel oneAPI Maths Kernel Library (MKL), but this requires use of the MKL versions of BLAS and LAPACK.
 
 [### Assessment tools]: #
 
@@ -285,22 +300,24 @@ The simplest FFT library to use in this case is the [Fastest Fourier Transform i
 [>]: #
 [> Add additional information about the impact of optimisations on convergence or correctness of results if provided by the submitter.  If there are any issues with compatibility on the machine you are testing on, or any build issues experienced, provide details]: #
 
-Requirements of compiling on multiple systems and architectures has driven the choice of compilers and optimisations for the building of CASTEP. The build process is supported by GNU make and example scripts to build CPU only and GPU accelerated binaries are available in the `scripts` directory of the benchmark repository. For all GPU accelerated binaries, the NVIDIA Fortran and C compilers `nvfortran` and `nvc`. Optimisation was standardised at the CASTEP level, which allows for the automated building of standard `debug`, `intermediate`, `fast` or `coverage` binaries, controlled by the `BUILD` directive given to `make`. This pre-assessment has exclusively used `BUILD=fast` to ensure that compiler optimisation of CASTEP is performed as expected for production level simulations. For `gfortran`, the `fast` compiler flags are `-O3 -funroll-loops -fno-signed-zeros -g -fbacktrace`. For `nvfortran`, compiler optimisation flags are `-fastsse -O3`.
+The requirement of compiling on multiple systems and architectures has driven the choice of compilers and optimisations for the building of CASTEP. The build process is supported by GNU Make: example scripts to build CPU only and GPU accelerated binaries are available in the `scripts` directory of the benchmark repository. For all GPU accelerated binaries, the NVIDIA Fortran and C compilers, `nvfortran` and `nvc` were used. CASTEP 26, as tested in this work, only supports GPU acceleration via the openACC standard, which only allows for acceleration with NVIDIA GPUs and compilation with the NVIDIA compilers.
 
-Whilst more aggressive optimisation of the compilation of CASTEP is possible, it would not be representative of the real-world applications of CASTEP, where often a centralised software build is controlled by HPC managers, rather than individually compiled by researchers. This incentivised the use of the CASTEP driven optimisation of the code, via the `BUILD` directive, ensuring effective and stable performance of CASTEP with minimal time investment.
+Optimisation was standardised at the CASTEP level, which allows for the automated building of standard `debug`, `intermediate`, `fast` or `coverage` binaries, controlled by the `BUILD` directive given to `make`. This pre-assessment has exclusively used `BUILD=fast` to ensure that compiler optimisation of CASTEP is performed as expected for production level simulations. For `gfortran`, the `fast` compiler flags are: `-O3 -funroll-loops -fno-signed-zeros -g -fbacktrace`. For `nvfortran`, compiler optimisation flags are: `-fastsse -O3`.
+
+[Whilst more aggressive system specific optimisation of the compilation of CASTEP is possible, it would not be representative of the real-world applications of CASTEP, where often a centralised software build is controlled and optimised by HPC managers, rather than individually compiled by researchers. This incentivised the use of the CASTEP driven optimisation of the code, via the `BUILD` directive, ensuring effective and stable performance of CASTEP with minimal time investment.]: #
 
 [> MAQAO should present missed compiler optimisation opportunities. Increasing the optimisation level may require re-converging the system to confirm accuracy. This may be outside the scope of the assessment.]: #
 
 ## 4: Computational complexity and scaling
 
-For the benchmarks presented thus far, the limits of strong scaling are reached. This is mainly due to the benchmarks themselves being optimised for intranode testing and GPU acceleration profiling within a single node environment. Expanding the tests to explore strong scaling across multiple nodes is possible by expanding the size of the system under consideration; model more atoms in both benchmarks.
+For the benchmarks presented thus far, the limits of strong scaling are reached. This is mainly due to the benchmarks themselves being optimised for intranode testing and GPU acceleration profiling within a single node environment. Expanding the tests to explore strong scaling across multiple nodes is possible by expanding the size of the system under consideration, by creating larger supercells to model more atoms in the benchmarks.
 
 [> Comment on the possibility of scaling the problem up and down, both in strong (changing number of work units e.g. CPUs, but keeping the problem size constant) and weak (changing the problem size but keeping number of work units the same) contexts. Add any information provided by the submitter regarding the scaling of _computation (i.e. work)_, _memory_ and _execution time_ as the problem size or work units are increased.]: #
 [> If there is existing scaling information (graphs or raw data) available, attach it to this report or add links to access it.]: #
 
-In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2x2x2 to 4x4x4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. This will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
+In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2&times;2&times;2 to 4&times;4&times;4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
 
-THe water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
+The water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
 
 ## 5: Memory, storage and I/O
 
@@ -308,7 +325,7 @@ THe water box benchmark can be scaled by increasing the planewave cutoff energy 
 
 CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark.
 
-**Fe 2x2x2**
+**Fe 2&times;2&times;2**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
 --------------------------------------------|----------------------------------:|
 Model and support data                      | 1542.3                          |
@@ -339,13 +356,13 @@ Stress calculation requirements             | 319.1                           |
 
 [> Comment on the expected storage requirements of the program, are there large amounts of temporary files (either in quantity or in total size)? An estimate of this information should be provided as part of the submission. A program that produces a large amount of temporary checkpoint files should have checkpoints turned off where possible.]: #
 
-Additionally, each benchmark will write output files to the disk, totalling approximately 1.5 MB for the water box benchmark and 2 MB for the Fe benchmark. There is also the potential for CASTEP to output a detailed timing profile using the code block:
+Additionally, each benchmark writes output files to the disk, totalling approximately 1.5 MB for the water box benchmark and 2 MB for the Fe benchmark. There is also the potential for CASTEP to output a detailed timing profile using the code block:
 ```
 %block devel_code
 TRACE PROF: * :END PROF
 %endblock devel_code
 ```
-which will write a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in the benchmark run. These files are only written after the simulation is complete and each one is around 350 KB.
+which writes a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in the benchmark run. These files are only written after the simulation is complete and each one is around 350 KB.
 
 
 [> Comment on the expected output, including when the I/O is performed, and your observations when running the benchmark. This output should be minimal when testing the working performance of the program rather than the I/O saturation. Excessive I/O will result in an inaccurate performance assessment and may result in rejection.]: #
@@ -358,88 +375,87 @@ Included in this section are the outcomes from preliminary benchmarking performe
 
 #### CPU Benchmarking
 
-**Fe 2x2x2**
+**Fe 2&times;2&times;2**
 
-Raw timing data for the CPU only performance of various architectures, alongside strong scaling up to 32 MPI processes are presented here.
+Raw timing data for the CPU only performance of various architectures, alongside strong scaling up to 32 MPI processes, are presented here.
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2x2x2 benchmark.
+   <figcaption> Raw calculation timing data for the Fe 2&times;2&times;2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the Fe 2x2x2 benchmark, up to 32 MPI processes.
+   <figcaption> Strong scaling of the Fe 2&times;2&times;2 benchmark, up to 32 MPI processes. </figcaption>
 </figure>
-
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the water box benchmark.
+   <figcaption> Raw calculation timing data for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the water box benchmark, up to 32 MPI processes.
+   <figcaption> Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 #### GPU Benchmarking
 
-**Fe 2x2x2**
+**Fe 2&times;2&times;2**
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2x2x2 benchmark, when using GPU acceleration.
+   <figcaption> Raw calculation timing data for the Fe 2&times;2&times;2 benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the Fe 2x2x2 benchmark.
+   <figcaption> Speedup from CPU by using a GPU for the Fe 2&times;2&times;2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the Fe 2x2x2 benchmark. Higher is better.
+   <figcaption> Computational cost saving from using a GPU for the Fe 2&times;2&times;2 benchmark. Higher is better. </figcaption>
 </figure>
 
-**Fe 4x4x4**
+**Fe 4&times;4&times;4**
 
 <figure>
    <img src="./figs/plots/multiGPU_testing.png" width="600">
-   <figcaption> Calculation timing data for an expanded Fe 4x4x4 benchmark, when using GPU acceleration with multiple GPUs.
+   <figcaption> Calculation timing data for an expanded Fe 4&times;&times;4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the water box benchmark, when using GPU acceleration.
+   <figcaption> Raw calculation timing data for the water box benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the water box benchmark.
+   <figcaption> Speedup from CPU by using a GPU for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the water box benchmark. Higher is better.
+   <figcaption> Computational cost saving from using a GPU for the water box benchmark. Higher is better. </figcaption>
 </figure>
 
 #### Compiler Testing
 
-As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2x2x2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured; comparing gfortran+openMPI+openBLAs+FFTW3 to an Intel stack of ifort+Intel MPI+MKL+MKL_FFT. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (nvfortran+openMPI+NVPL+FFTW3).
+As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2&times;2&times;2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured, comparing `gfortran+openMPI+openBLAs+FFTW3` to an Intel stack of `ifort+Intel MPI+MKL+MKL_FFT`. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (`nvfortran+openMPI+NVPL+FFTW3`).
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Calculation time for an Fe 2x2x2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+   <figcaption> Calculation time for an Fe 2&times;2&times;2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
 #### Data Availability
 
-The data used to generate these plots is available as a `.csv` from the `data` directory. All raw data is also included as a tarball.
+The data used to generate these plots is available as a `.csv` from the `data` directory.
 
 [> Include any additional information from the submitter that does not fit the previous sections.]: #
 
