@@ -5,21 +5,6 @@
 [Summary: Pre-assessment report template document]: #
 [---]: #
 
-[Initialise a css variable to auto number figures]:#
-
-
-<style>
-    /* initialise the counter */
-    body { counter-reset: figureCounter; }
-    /* increment the counter for every instance of a figure even if it doesn't have a caption */
-    figure { counter-increment: figureCounter; }
-    /* prepend the counter to the figcaption content */
-    figure figcaption:before {
-        content: "Figure " counter(figureCounter) ": "
-    }
-</style>
-
-
 # Pre-assessment of CASTEP for SHAREing Task 019
 
 ## Assessment objective
@@ -52,16 +37,16 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 
 ## 1: Benchmark setup
 
-Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 $\times$ 20 $\times$ 20 &angst; ) sampled at the &Gamma;-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
+Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 $\times$ 20 $\times$ 20 &angst; ) sampled at the $\Gamma$-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
 
 <figure>
    <img src="./figs/Fe.png" width="600">
-   <figcaption> 16 iron atoms in a periodic box (black lines). </figcaption>
+   <figcaption> Figure 1: 16 iron atoms in a periodic box (black lines). </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/h2o_box.png" width="600">
-   <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
+   <figcaption> Figure 2: 200 water molecules inside a periodic box spanning 20 &angst; $\times$ 20 &angst; $\times$ 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
 </figure>
 
 [> This section should be composed of information provided by the submitter.]: #
@@ -380,24 +365,24 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
+   <figcaption> Figure 3: Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the Fe 2 $\times$ 2 $\times$ 2 benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Figure 4: Strong scaling of the Fe 2 $\times$ 2 $\times$ 2 benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the water box benchmark. </figcaption>
+   <figcaption> Figure 5: Raw calculation timing data for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Figure 6: Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 #### GPU Benchmarking
@@ -406,41 +391,41 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Figure 7: Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
+   <figcaption> Figure 8: Speedup from CPU by using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. Higher is better. </figcaption>
+   <figcaption> Figure 9: Computational cost saving from using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. Higher is better. </figcaption>
 </figure>
 
 **Fe 4 $\times$ 4 $\times$ 4**
 
 <figure>
    <img src="./figs/plots/multiGPU_testing.png" width="600">
-   <figcaption> Calculation timing data for an expanded Fe 4 $\times$  $\times$ 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 $\times$  $\times$ 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the water box benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Figure 11: Raw calculation timing data for the water box benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the water box benchmark. </figcaption>
+   <figcaption> Figure 12: Speedup from CPU by using a GPU for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the water box benchmark. Higher is better. </figcaption>
+   <figcaption> Figure 13: Computational cost saving from using a GPU for the water box benchmark. Higher is better. </figcaption>
 </figure>
 
 #### Compiler Testing
@@ -449,7 +434,7 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Calculation time for an Fe 2 $\times$ 2 $\times$ 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+   <figcaption> Figure 14: Calculation time for an Fe 2 $\times$ 2 $\times$ 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
 #### Data Availability
