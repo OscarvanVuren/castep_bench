@@ -54,15 +54,13 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 
 Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 $\times$ 20 $\times$ 20 &angst; ) sampled at the &Gamma;-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
 
-<p align="center">
 <figure>
-   <img src="./figs/Fe.png" width="400">
+   <img src="./figs/Fe.png" width="600">
    <figcaption> 16 iron atoms in a periodic box (black lines). </figcaption>
 </figure>
-</p>
 
 <figure>
-   <img src="./figs/h2o_box.png" width="400">
+   <img src="./figs/h2o_box.png" width="600">
    <figcaption> 200 water molecules inside a periodic box spanning 20 &angst; x 20 &angst; x 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
 </figure>
 
