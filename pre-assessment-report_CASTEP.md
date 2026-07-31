@@ -46,7 +46,7 @@ Two regimes were explored in the benchmarking procedure; a close packed metal sy
 
 <figure>
    <img src="./figs/h2o_box.png" width="600">
-   <figcaption> Figure 2: 200 water molecules inside a periodic box spanning 20 &angst; $\times$ 20 &angst; $\times$ 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
+   <figcaption> Figure 2: 200 water molecules inside a periodic box spanning 20 &angst; &times; 20 &angst; &times; 20 &angst; (black lines). Red and white atoms represent oxygen and hydrogen, respectively. </figcaption>
 </figure>
 
 [> This section should be composed of information provided by the submitter.]: #
@@ -365,12 +365,12 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Figure 3: Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
+   <figcaption> Figure 3: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Figure 4: Strong scaling of the Fe 2 $\times$ 2 $\times$ 2 benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Figure 4: Strong scaling of the Fe 2 &times; 2 &times; 2 benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 **Waterbox**
@@ -391,24 +391,24 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Figure 7: Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Figure 7: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Figure 8: Speedup from CPU by using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
+   <figcaption> Figure 8: Speedup from CPU by using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Figure 9: Computational cost saving from using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. Higher is better. </figcaption>
+   <figcaption> Figure 9: Computational cost saving from using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. Higher is better. </figcaption>
 </figure>
 
 **Fe 4 $\times$ 4 $\times$ 4**
 
 <figure>
    <img src="./figs/plots/multiGPU_testing.png" width="600">
-   <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 $\times$  $\times$ 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 **Waterbox**
@@ -434,7 +434,7 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Figure 14: Calculation time for an Fe 2 $\times$ 2 $\times$ 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
 #### Data Availability
