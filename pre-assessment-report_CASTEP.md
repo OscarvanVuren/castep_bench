@@ -52,7 +52,7 @@ CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads o
 
 ## 1: Benchmark setup
 
-Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 x 20 x 20 &angst; ) sampled at the &Gamma;-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
+Two regimes were explored in the benchmarking procedure; a close packed metal system with a dense **k**-point mesh (Fe cell, 16 atoms) and a molecular system (periodic water box, 20 $\times$ 20 $\times$ 20 &angst; ) sampled at the &Gamma;-point only. This allows for the comparison of parallelisation in CASTEP over **k** points and over **G** vectors, and the acceleration possible in these two extremes of condensed matter simulation.
 
 <center>
 <figure>
@@ -143,7 +143,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon CPU**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ [AMD EPYC Genoa 9654](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html)        |
+| Processors                | 2  $\times$  [AMD EPYC Genoa 9654](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html)        |
 | Clock speed per CPU       | 2.4 GHz                                                                     |
 | Sockets                   | 2                                                                          |
 | Cores (per socket)        | 192 (96)                                                                        |
@@ -153,8 +153,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon GPU H200**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
-| GPU                       | 4 $\times$ [NVIDIA H200](https://www.nvidia.com/en-gb/data-center/h200/) |
+| Processors                | 2  $\times$  [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
+| GPU                       | 4  $\times$  [NVIDIA H200](https://www.nvidia.com/en-gb/data-center/h200/) |
 | GPU Memory                | 140 GB                                                                         |
 | GPU Connect               | SXM5                                                                        |
 | Clock speed per CPU       | 4.0 GHz                                                                     |
@@ -166,8 +166,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon GPU H100**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
-| GPU                       | 4 $\times$ [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
+| Processors                | 2  $\times$  [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
+| GPU                       | 4  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
 | GPU Memory                | 80 GB                                                                         |
 | GPU Connect               | SXM5                                                                        |
 | Clock speed per CPU       | 4.0 GHz                                                                     |
@@ -179,8 +179,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon GPU L40S**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ [Intel Xeon Gold (Sapphire Rapids) 6430](https://www.intel.com/content/www/us/en/products/sku/231737/intel-xeon-gold-6430-processor-60m-cache-2-10-ghz/specifications.html)        |
-| GPU                       | 8 $\times$ [NVIDIA L40S](https://www.nvidia.com/en-gb/data-center/l40s/) |
+| Processors                | 2  $\times$  [Intel Xeon Gold (Sapphire Rapids) 6430](https://www.intel.com/content/www/us/en/products/sku/231737/intel-xeon-gold-6430-processor-60m-cache-2-10-ghz/specifications.html)        |
+| GPU                       | 8  $\times$  [NVIDIA L40S](https://www.nvidia.com/en-gb/data-center/l40s/) |
 | GPU Memory                | 48 GB                                                                         |
 | GPU Connect               | PCIe                                                                        |
 | Clock speed per CPU       | 4.0 GHz                                                                     |
@@ -192,8 +192,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon GPU V100**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2 $\times$ [Intel Xeon Gold (Cascade Lake) 6248](https://www.intel.com/content/www/us/en/products/sku/192446/intel-xeon-gold-6248-processor-27-5m-cache-2-50-ghz/specifications.html)        |
-| GPU                       | 2 $\times$ [NVIDIA V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) |
+| Processors                | 2  $\times$  [Intel Xeon Gold (Cascade Lake) 6248](https://www.intel.com/content/www/us/en/products/sku/192446/intel-xeon-gold-6248-processor-27-5m-cache-2-50-ghz/specifications.html)        |
+| GPU                       | 2  $\times$  [NVIDIA V100](https://www.nvidia.com/en-gb/data-center/tesla-v100/) |
 | GPU Memory                | 16 GB                                                                         |
 | GPU Connect               | PCIe                                                                        |
 | Clock speed per CPU       | 2.5 GHz                                                                     |
@@ -205,8 +205,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Isambard3 MACS "ampere"**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1 $\times$ [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
-| GPU                       | 4 $\times$ [NVIDIA A100](https://www.nvidia.com/en-gb/data-center/a100/) |
+| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
+| GPU                       | 4  $\times$  [NVIDIA A100](https://www.nvidia.com/en-gb/data-center/a100/) |
 | GPU Memory                | 40 GB                                                                         |
 | GPU Connect               | SXM4                                                                        |
 | Clock speed per CPU       | 4.0 GHz                                                                     |
@@ -218,8 +218,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Isambard3 MACS "hopper"**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1 $\times$ [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
-| GPU                       | 4 $\times$ [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
+| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
+| GPU                       | 4  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
 | GPU Memory                | 80 GB                                                                         |
 | GPU Connect               | PCIe                                                                        |
 | Clock speed per CPU       | 4.0 GHz                                                                     |
@@ -232,8 +232,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 [IBM POWER9 CPUs have 4 hardware threads available per core. System summaries that do not contain an explicit thread count have one thread per CPU core. ]: #
 [| Specification             | Per node                                                                     | ]: #
 [| ------------------------- | ---------------------------------------------------------------------------- | ]: #
-[| Processors                | 2 $\times$ IBM POWER9 CPU                                                      | ]: #
-[| GPU                       | 4 $\times$ NVIDIA V100(https://www.nvidia.com/en-gb/data-center/tesla-v100/) | ]: #
+[| Processors                | 2  $\times$  IBM POWER9 CPU                                                      | ]: #
+[| GPU                       | 4  $\times$  NVIDIA V100(https://www.nvidia.com/en-gb/data-center/tesla-v100/) | ]: #
 [| GPU Connect               | NVLink 2.0                                                                     | ]: #
 [| Clock speed per CPU       | 2.4 GHz                                                                     | ]: #
 [| Sockets                   | 2                                                                          | ]: #
@@ -244,8 +244,8 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Bede Grace Hopper**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1 $\times$ [NVIDIA GRACE](https://www.nvidia.com/en-gb/data-center/grace-cpu-superchip/)        |
-| GPU                       | 1 $\times$ [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
+| Processors                | 1  $\times$  [NVIDIA GRACE](https://www.nvidia.com/en-gb/data-center/grace-cpu-superchip/)        |
+| GPU                       | 1  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
 | GPU Memory                | 96 GB                                                                         |
 | GPU Connect               | NVLink-C2C                                                                        |
 | Clock speed per CPU       | 3.483 GHz                                                                     |
@@ -316,7 +316,7 @@ For the benchmarks presented thus far, the limits of strong scaling are reached.
 [> Comment on the possibility of scaling the problem up and down, both in strong (changing number of work units e.g. CPUs, but keeping the problem size constant) and weak (changing the problem size but keeping number of work units the same) contexts. Add any information provided by the submitter regarding the scaling of _computation (i.e. work)_, _memory_ and _execution time_ as the problem size or work units are increased.]: #
 [> If there is existing scaling information (graphs or raw data) available, attach it to this report or add links to access it.]: #
 
-In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2$\times$2$\times$2 to 4$\times$4$\times$4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
+In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2 $\times$ 2 $\times$ 2 to 4 $\times$ 4 $\times$ 4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
 
 The water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
 
@@ -326,7 +326,7 @@ The water box benchmark can be scaled by increasing the planewave cutoff energy 
 
 CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark.
 
-**Fe 2$\times$2$\times$2**
+**Fe 2 $\times$ 2 $\times$ 2**
 Memory Use Case                             | Estimated Memory Need Per Process / MB |
 --------------------------------------------|----------------------------------:|
 Model and support data                      | 1542.3                          |
@@ -376,18 +376,18 @@ Included in this section are the outcomes from preliminary benchmarking performe
 
 #### CPU Benchmarking
 
-**Fe 2$\times$2$\times$2**
+**Fe 2 $\times$ 2 $\times$ 2**
 
 Raw timing data for the CPU only performance of various architectures, alongside strong scaling up to 32 MPI processes, are presented here.
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2$\times$2$\times$2 benchmark. </figcaption>
+   <figcaption> Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Strong scaling of the Fe 2$\times$2$\times$2 benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Strong scaling of the Fe 2 $\times$ 2 $\times$ 2 benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 **Waterbox**
@@ -404,28 +404,28 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 #### GPU Benchmarking
 
-**Fe 2$\times$2$\times$2**
+**Fe 2 $\times$ 2 $\times$ 2**
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Raw calculation timing data for the Fe 2$\times$2$\times$2 benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Raw calculation timing data for the Fe 2 $\times$ 2 $\times$ 2 benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Speedup from CPU by using a GPU for the Fe 2$\times$2$\times$2 benchmark. </figcaption>
+   <figcaption> Speedup from CPU by using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Computational cost saving from using a GPU for the Fe 2$\times$2$\times$2 benchmark. Higher is better. </figcaption>
+   <figcaption> Computational cost saving from using a GPU for the Fe 2 $\times$ 2 $\times$ 2 benchmark. Higher is better. </figcaption>
 </figure>
 
-**Fe 4$\times$4$\times$4**
+**Fe 4 $\times$ 4 $\times$ 4**
 
 <figure>
    <img src="./figs/plots/multiGPU_testing.png" width="600">
-   <figcaption> Calculation timing data for an expanded Fe 4$\times$$\times$4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <figcaption> Calculation timing data for an expanded Fe 4 $\times$  $\times$ 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 **Waterbox**
@@ -447,11 +447,11 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 #### Compiler Testing
 
-As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2$\times$2$\times$2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured, comparing `gfortran+openMPI+openBLAs+FFTW3` to an Intel stack of `ifort+Intel MPI+MKL+MKL_FFT`. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (`nvfortran+openMPI+NVPL+FFTW3`).
+As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2 $\times$ 2 $\times$ 2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured, comparing `gfortran+openMPI+openBLAs+FFTW3` to an Intel stack of `ifort+Intel MPI+MKL+MKL_FFT`. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (`nvfortran+openMPI+NVPL+FFTW3`).
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Calculation time for an Fe 2$\times$2$\times$2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+   <figcaption> Calculation time for an Fe 2 $\times$ 2 $\times$ 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
 </figure>
 
 #### Data Availability
