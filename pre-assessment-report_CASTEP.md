@@ -103,15 +103,15 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C` for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
 
 1. The [Falcon](https://wiki.arcca.cf.ac.uk/index.php/The_Falcon_Supercomputer) cluster at Cardiff University.
-   * AMD Epyc Genoa 9654 CPU. 192 cores per node. 30 nodes.
+   * AMD EPYC Genoa 9654 CPU. 192 cores per node. 30 nodes.
    * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
    * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
    * Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
    * Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
 
 2. The [Isambard3 Multi-Architecture Comparison System (MACS)](https://docs.isambard.ac.uk), hosted by Bristol University.
-   * AMD Epyc Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
-   * AMD Epyc Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
+   * AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
+   * AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
 
@@ -126,7 +126,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Falcon CPU**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 2  $\times$  [AMD EPYC Genoa 9654](https://www.amd.com/en/products/processors/server/epyc/4th-generation-9004-and-8004-series/amd-epyc-9654.html)        |
+| Processors                | 2  $\times$  [AMD EPYC Genoa 9654](https://www.amd.com/en/products/processors/server/EPYC/4th-generation-9004-and-8004-series/amd-EPYC-9654.html)        |
 | Clock speed per CPU       | 2.4 GHz                                                                     |
 | Sockets                   | 2                                                                          |
 | Cores (per socket)        | 192 (96)                                                                        |
@@ -188,7 +188,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Isambard3 MACS "ampere"**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
+| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        |
 | GPU                       | 4  $\times$  [NVIDIA A100](https://www.nvidia.com/en-gb/data-center/a100/) |
 | GPU Memory                | 40 GB                                                                         |
 | GPU Connect               | SXM4                                                                        |
@@ -201,7 +201,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 **Isambard3 MACS "hopper"**
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/epyc/7003-series/amd-epyc-7543p.html)        |
+| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        |
 | GPU                       | 4  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
 | GPU Memory                | 80 GB                                                                         |
 | GPU Connect               | PCIe                                                                        |
