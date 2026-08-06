@@ -299,7 +299,7 @@ For the benchmarks presented thus far, the limits of strong scaling are reached.
 [> Comment on the possibility of scaling the problem up and down, both in strong (changing number of work units e.g. CPUs, but keeping the problem size constant) and weak (changing the problem size but keeping number of work units the same) contexts. Add any information provided by the submitter regarding the scaling of _computation (i.e. work)_, _memory_ and _execution time_ as the problem size or work units are increased.]: #
 [> If there is existing scaling information (graphs or raw data) available, attach it to this report or add links to access it.]: #
 
-In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2 $\times$ 2 $\times$ 2 to 4 $\times$ 4 $\times$ 4 (an increase by factor of 8). Alternatively, the Fe benchmark can be scaled by increasing the number of **k**-points sampled, via increasing the `KPOINTS_MP_GRID` keyword in `Fe.cell` beyond `4 4 4`. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
+In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2 $\times$ 2 $\times$ 2 to 4 $\times$ 4 $\times$ 4; an increase in number of atoms by factor of 8. This will increase the computational complexity of the simulation by a significant amount, as the cost of DFT scales with the cube of the number of atoms. Alternatively, the Fe benchmark can be scaled by increasing or decreasing the number of **k**-points sampled, via modifying the `KPOINTS_MP_GRID` keyword in `Fe.cell` from `4 4 4`. For the larger 4 $\times$ 4 $\times$ 4 supercell, the number of **k** points was reduced to `2 2 2` to keep the sampling density of **k** space similar to that performed in the smaller benchmark. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
 
 The water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
 
@@ -434,7 +434,7 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiing CASTEP using different compiler and library stacks.
+   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiling CASTEP using different compiler and library stacks.
 </figure>
 
 #### Data Availability
