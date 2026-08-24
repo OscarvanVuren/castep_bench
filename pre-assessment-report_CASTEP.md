@@ -301,7 +301,7 @@ For the benchmarks presented thus far, the limits of strong scaling are reached.
 
 In the cases where the regular benchmarks were not large enough, the supercell size for the Fe benchmark was increased from 2 $\times$ 2 $\times$ 2 to 4 $\times$ 4 $\times$ 4; an increase in number of atoms by factor of 8. This will increase the computational complexity of the simulation by a significant amount, as the cost of DFT scales with the cube of the number of atoms. Alternatively, the Fe benchmark can be scaled by increasing or decreasing the number of **k**-points sampled, via modifying the `KPOINTS_MP_GRID` keyword in `Fe.cell` from `4 4 4`. For the larger 4 $\times$ 4 $\times$ 4 supercell, the number of **k** points was reduced to `2 2 2` to keep the sampling density of **k** space similar to that performed in the smaller benchmark. Making the grid non-uniform, for example `KPOINTS_MP_GRID 5 6 7`, is not recommended for physical reasons. Increasing the number of **k**-points will increase the computational complexity of the benchmark by a linear factor of the product of the integers given to `KPOINTS_MP_GRID`.
 
-The water box benchmark can be scaled by increasing the planewave cutoff energy in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
+The water box benchmark can be scaled by increasing the planewave cutoff energy beyond 400 eV in `H2O_box.param`  using the `cut_off_energy` keyword. Suggested cutoff energies to increase the complexity of the water box task are 600 eV or 800 eV.
 
 ## 5: Memory, storage and I/O
 
@@ -356,6 +356,26 @@ which writes a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in the
 ### Benchmarking Data for CASTEP
 
 Included in this section are the outcomes from preliminary benchmarking performed using the methods described above. Testing was performed on the HPC facilities [enumerated previously](#2-description-of-working-environment), with each CPU and CPU/GPU combination profiled individually.
+
+#### Hardware Performance
+
+To assess the utilisation of CPU resources when performing simulations using CASTEP, the peak performance of each CPU was measured and compared to the calculated performance of each CPU for a CASTEP simulation run. This data was collected using [Likwid](https://github.com/RRZE-HPC/likwid), specifically the `likwid-bench` tool and the `likwid-perfctr` tool. Each CPU was considered individually; if there were multiple CPUs present in a single node only the first socket was used for profiling, specifially pinning tasks to threads.
+
+`likwid-bench` allows for the peak performance of each CPU, measured in millions of floating point operations per second (MFLOPS / s), to be profiled. This profiling used datasets that would fit entirely within the L1 cache of each CPU, ensuring that performance of the CPU was not limited by data transfers into and out of cache. 
+
+`likwid-perfctr` was used as a wrapper around `mpirun` to profile the parallel performance of a CASTEP run. The challenge when using this tool is understanding the intsructions sets available to the CPU and how well utilised these instruction sets are. Therefore, where the data is available, we have presented CPU utilisation for vectorised simualtions that most closely match the compiler optimisations employed by CASTEP for each CPU architecture when using the `BUILD=fast` directive.
+
+<figure>
+   <img src="./figs/plots/fe_cpuUtil.png" width="600">
+   <figcaption> Figure 3: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
+</figure>
+
+<figure>
+   <img src="./figs/plots/h2o_cpuUtil.png" width="600">
+   <figcaption> Figure 3: Raw calculation timing data for the water box benchmark. </figcaption>
+</figure>
+
+Serial performance when using the AVX instruction set, or the equivalent SVE for NVIDIA Grace, generally falls within 50% to 90% utilisation. CPU utilisation of greater than 60% in this case would be considered good performance. Parallel performance, relative to our synthetic benchmark, drops off with increasing CPU load as the challenge of distrubuting the CASTEP workload into the CPU cache becomes a greater bottleneck.
 
 #### CPU Benchmarking
 
