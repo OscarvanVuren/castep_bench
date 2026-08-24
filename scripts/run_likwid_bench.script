@@ -1,0 +1,46 @@
+#! /bin/bash
+
+# A Short shell script to run all benchmarks for all hardware instruction sets using likwid-bench
+
+LIKWID_INSTALL_DIR = "path/to/likwid/install"
+LIKWID_TOOL = "likwid-bench"
+
+halfcachesize = XX # Half the size of the L1 cache PER CPU, from e.g. lscpu -C
+nthreads = XX # Number of CPU threads to be profiled
+cachebench = $(($halfcachesize * $nthreads)) # calculate cache size of half L1 for nthreads
+
+#syntax; socket:benchmark_size:nprocs
+benchsize = "S0:${cachebench}kB:${nthreads}"
+
+# Name of the benchmark to run
+benchname = "peakflops"
+
+echo $benchsize
+
+# Gets all instruction set benchmarks
+readarray -t rawbencharray < <($LIKWID_INSTALL_DIR$LIKWID_TOOL -a | grep $benchname)
+
+# gets the actual name of the benchmark without description
+index=0
+for string in "${rawbencharray[@]}"; do
+
+    readarray -t -d " - " test <<<$string
+    benchmark[$index]="${test[0]}"
+    index=$(($index + 1))
+
+done
+
+# set up csv for data collection
+rm summary.csv
+echo "benchmark, MFlops/s" >>summary.csv
+
+# executes benchmarks
+for run in "${benchmark[@]}"; do
+    
+    echo "Running benchmark " $run
+    $LIKWID_INSTALL_DIR$LIKWID_TOOL -t $run -W $benchsize >$run.log
+
+    read -d "" -a res_str <<<$(grep "MFlops" $run.log)
+    echo "$run, ${res_str[1]}" >>summary.csv
+    
+done
