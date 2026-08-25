@@ -68,6 +68,7 @@ The benchmarks for this pre-assessment of CASTEP can be obtained from:
 ```bash
 git clone https://github.com/OscarvanVuren/castep_bench.git
 ```
+
 This repository contains the benchmark input files in the `benchmarks` directory, as well as the compilation scripts for building both CPU only and GPU accelerated binaries of CASTEP in the `scripts` directory. Additionally, reference data for the benchmarks performed as part of this pre-assessment are available in the `data` directory.
 
 [> Provide instructions on how to run the benchmark and indicate the expected I/O.]: #
@@ -79,16 +80,18 @@ export SEEDNAME=<seed_name>
 export EXECUTABLE=<path/to/castep.mpi>
 mpirun -np <n_tasks> $EXECUTABLE $SEEDNAME 
 ```
+
 when using MPI natively, or
+
 ```bash
 srun -n <n_slurm_tasks> $EXECUTABLE $SEEDNAME
 ```
+
 in a Slurm queue system. In both cases, these commands will perform a CASTEP run using the number of tasks (`n_tasks` or `n_slurm_tasks`) specified.
 > [!NOTE]
 > CASTEP will not always run with the number of tasks specified, but will instead use the most tasks possible when parallelising over **k**-points. The Fe benchmark has a total of 32 **k**-points, thus optimally uses multiples of 32 tasks. When using very few MPI tasks, this automatic optimisation is ignored to ensure performance at low core counts.
 
 The `SEEDNAME` used in running the benchmarks determines the output filenames. Most file I/O has been disabled; however, CASTEP will generate two files during execution: a`SEEDNAME.castep` output file, containing calculation data and timings, and a `.usp` file containing the on-the-fly-generated (OTFG) pseudopotential for each species in the `SEEDNAME.cell` file.
-
 
 ### Reference architecture
 
@@ -103,27 +106,28 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C` for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
 
 1. The [Falcon](https://wiki.arcca.cf.ac.uk/index.php/The_Falcon_Supercomputer) cluster at Cardiff University.
-   * AMD EPYC Genoa 9654 CPU. 192 cores per node. 30 nodes.
-   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
-   * Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
-   * Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
-   * Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
+   - AMD EPYC Genoa 9654 CPU. 192 cores per node. 30 nodes.
+   - Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
+   - Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
+   - Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
+   - Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
 
 2. The [Isambard3 Multi-Architecture Comparison System (MACS)](https://docs.isambard.ac.uk), hosted by Bristol University.
-   * AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
-   * AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
+   - AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
+   - AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
 
    [* IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.]: #
 
-   * NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes.
+   - NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes.
 
 [> Provide processor, memory and cache information as well as interconnect information (e.g. Infiniband, NVlink - if across multiple nodes) of the system the assessment is to be performed on.]: #
 
 [> The table below is an example and should be adapted for "non-standard" architectures, e.g. systems with Grace Hopper nodes. A placeholder for hardware accelerators is provided. For most assessment projects, these are likely to be GPUs (generally Nvidia or AMD). But some cases may also work with FPGAs, ASICs etc. Include any relevant specifications.]: #
 
 **Falcon CPU**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2  $\times$  [AMD EPYC Genoa 9654](https://www.amd.com/en/products/processors/server/EPYC/4th-generation-9004-and-8004-series/amd-EPYC-9654.html)        |
@@ -134,6 +138,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 768 GB DDR5                                                               |
 
 **Falcon GPU H200**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2  $\times$  [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
@@ -147,6 +152,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 1000 GB DDR5                                                               |
 
 **Falcon GPU H100**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2  $\times$  [Intel Xeon Gold (Emerald Rapids) 6530](https://www.intel.com/content/www/us/en/products/sku/237249/intel-xeon-gold-6530-processor-160m-cache-2-10-ghz/specifications.html)        |
@@ -160,6 +166,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 1000 GB DDR5                                                               |
 
 **Falcon GPU L40S**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2  $\times$  [Intel Xeon Gold (Sapphire Rapids) 6430](https://www.intel.com/content/www/us/en/products/sku/231737/intel-xeon-gold-6430-processor-60m-cache-2-10-ghz/specifications.html)        |
@@ -173,6 +180,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 1000 GB DDR5                                                               |
 
 **Falcon GPU V100**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 2  $\times$  [Intel Xeon Gold (Cascade Lake) 6248](https://www.intel.com/content/www/us/en/products/sku/192446/intel-xeon-gold-6248-processor-27-5m-cache-2-50-ghz/specifications.html)        |
@@ -186,6 +194,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 360 GB DDR5                                                               |
 
 **Isambard3 MACS "ampere"**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        |
@@ -199,6 +208,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | RAM                       | 256 GB DDR5                                                               |
 
 **Isambard3 MACS "hopper"**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        |
@@ -225,6 +235,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 [| Local storage             | 480 GB SATA SSD                                                           | ]: #
 
 **Bede Grace Hopper**
+
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
 | Processors                | 1  $\times$  [NVIDIA GRACE](https://www.nvidia.com/en-gb/data-center/grace-cpu-superchip/)        |
@@ -310,12 +321,13 @@ The water box benchmark can be scaled by increasing the planewave cutoff energy 
 CASTEP provides an estimate of the memory requirement for each run, based on approximations of the memory requirements of the code and static data, model inputs, and estimates of the memory needs of the electronic localisation procedure, force computation and stress computation. These estimates, for both benchmarks, are collated below for different CPU architectures. The overall memory requirements are mostly driven by the size of the CASTEP binary, which varies greatly between compilation and architecture, ranging from 25739.0 MB in the case of the AMD EPYC Genoa 9654 build, to 8681.0 MB for the Intel Xeon 6530 build. The estimated memory needs of the model and computations are identical between compilations and are tabulated below, constructed from serial runs of CASTEP for each benchmark.
 
 **Fe 2 $\times$ 2 $\times$ 2**
-Memory Use Case                             | Estimated Memory Need Per Process / MB |
---------------------------------------------|----------------------------------:|
-Model and support data                      | 1542.3                          |
-Electronic energy minimisation requirements | 2348.2                          |
-Force calculation requirements              | 34.8                            |
-Stress calculation requirements             | 34.8                            |
+
+|Memory Use Case                             | Estimated Memory Need Per Process / MB |
+|--------------------------------------------|----------------------------------:     |
+|Model and support data                      | 1542.3                                 |
+|Electronic energy minimisation requirements | 2348.2                                 |
+|Force calculation requirements              | 34.8                                   |
+|Stress calculation requirements             | 34.8                                   |
 
 [CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB |        ]: #
 [--------------------------|------------------------------:|------------------------------:|]: #
@@ -324,12 +336,13 @@ Stress calculation requirements             | 34.8                            |
 [NVIDIA Grace              | 53203.2                       | 1089.216                      |]: # 
 
 **Water Box**
-Memory Use Case                             | Estimated Memory Need Per Process / MB |
---------------------------------------------|----------------------------------:|
-Model and support data                      | 7605.0                          |
-Electronic energy minimisation requirements | 4664.4                          |
-Force calculation requirements              | 262.8                           |
-Stress calculation requirements             | 319.1                           |
+
+|Memory Use Case                             | Estimated Memory Need Per Process / MB |
+|--------------------------------------------|----------------------------------:     |
+|Model and support data                      | 7605.0                                 |
+|Electronic energy minimisation requirements | 4664.4                                 |
+|Force calculation requirements              | 262.8                                  |
+|Stress calculation requirements             | 319.1                                  |
 
 [CPU                       | Peak Memory Estimate / MB | Peak Memory Measured / MB         |]: #
 [--------------------------|------------------------------:|------------------------------:|]: #
@@ -341,11 +354,13 @@ Stress calculation requirements             | 319.1                           |
 [> Comment on the expected storage requirements of the program, are there large amounts of temporary files (either in quantity or in total size)? An estimate of this information should be provided as part of the submission. A program that produces a large amount of temporary checkpoint files should have checkpoints turned off where possible.]: #
 
 Additionally, each benchmark writes output files to the disk, totalling approximately 1.5 MB for the water box benchmark and 2 MB for the Fe benchmark. There is also the potential for CASTEP to output a detailed timing profile using the code block:
+
 ```
 %block devel_code
 TRACE PROF: * :END PROF
 %endblock devel_code
 ```
+
 which writes a file `SEEDNAME.MPI_PROC.profile` for each MPI process used in the benchmark run. These files are only written after the simulation is complete and each one is around 350 KB.
 
 
@@ -363,7 +378,7 @@ To assess the utilisation of CPU resources when performing simulations using CAS
 
 `likwid-bench` allows for the peak performance of each CPU, measured in millions of floating point operations per second (MFLOPS / s), to be profiled. This profiling used datasets that would fit entirely within the L1 cache of each CPU, ensuring that performance of the CPU was not limited by data transfers into and out of cache. A short script to perform these benchmarks is available in the `scripts` directory of this repository.
 
-`likwid-perfctr` was used as a wrapper around `mpirun` to profile the parallel performance of a CASTEP run. The challenge when using this tool is understanding the intsructions sets available to the CPU and how well utilised these instruction sets are. Therefore, where the data is available, we have presented CPU utilisation for vectorised simualtions that most closely match the compiler optimisations employed by CASTEP for each CPU architecture when using the `BUILD=fast` directive.
+`likwid-perfctr` was used as a wrapper around `mpirun` to profile the parallel performance of a CASTEP run for each benchmark system. The challenge when using this tool is understanding the intsructions sets available to the CPU and how well utilised these instruction sets are. Therefore, where the data is available, we have presented CPU utilisation for vectorised simulations that most closely match the compiler optimisations employed by CASTEP for each CPU architecture when using the `BUILD=fast` directive.
 
 <figure>
    <img src="./figs/plots/fe_cpuUtil.png" width="600">
