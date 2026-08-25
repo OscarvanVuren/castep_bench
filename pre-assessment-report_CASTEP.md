@@ -41,7 +41,7 @@ Two regimes were explored in the benchmarking procedure; a close packed metal sy
 
 <figure>
    <img src="./figs/Fe.png" width="600">
-   <figcaption> Figure 1: 16 iron atoms in a periodic box (black lines). </figcaption>
+   <figcaption> Figure 1: 16 iron atoms in a periodic box (black lines): the Fe 2 &times; 2 &times; 2 system. </figcaption>
 </figure>
 
 <figure>
@@ -446,7 +446,7 @@ Raw timing data for the CPU only performance of various architectures, alongside
 Exploring the scaling of CASTEP calculations on multiple GPUs was challenging. As we have considered only the iron system in this scaling test, as this model is simpler to increase in cost. The benchmark we have been using thus far, the Fe 2 &times; 2 &times; 2 benchmark, was found to be too small to reasonably see performance gains from using multiple GPUs, so the benchmark was increased in size to 3 &times; 3 &times; 3, or 54 atoms. In an attempt to keep this simulation tractable, the number of **k** points considerd was reduced to 8. This size of system begins to push the boundaries of what can be considered an effective benchmark, with respect to total wall time, and yet was still found to be too small to properly assess GPU scaling using CASTEP. Yet, we present results using this testcase as they display the relative performance of GPU models for CASTEP applications.
 
 <figure>
-   <img src="./figs/plots/multiGPU_testing.png" width="600">
+   <img src="./figs/plots/fe_444_h200Test_raw.png" width="600">
    <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
