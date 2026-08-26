@@ -374,7 +374,7 @@ Included in this section are the outcomes from preliminary benchmarking performe
 
 #### Hardware Performance
 
-To assess the utilisation of CPU resources when performing simulations using CASTEP, the peak performance of each CPU was measured and compared to the calculated performance of each CPU for a CASTEP simulation run. This data was collected using [Likwid](https://github.com/RRZE-HPC/likwid), specifically the `likwid-bench` tool and the `likwid-perfctr` tool. Each CPU was considered individually; if there were multiple CPUs present in a single node only the first socket was used for profiling, specifially pinning tasks to threads.
+To assess the utilisation of CPU resources when performing simulations using CASTEP, the peak performance of each CPU model was measured and compared to the calculated performance of each CPU model for CASTEP simulation runs. This data was collected using [Likwid](https://github.com/RRZE-HPC/likwid), specifically the `likwid-bench` tool and the `likwid-perfctr` tool. Each CPU was considered individually; if there were multiple CPUs present in a single node, only the first socket was used for profiling, specifially pinning tasks to threads.
 
 `likwid-bench` allows for the peak performance of each CPU, measured in millions of floating point operations per second (MFLOPS / s), to be profiled. This profiling used datasets that would fit entirely within the L1 cache of each CPU, ensuring that performance of the CPU was not limited by data transfers into and out of cache. A short script to perform these benchmarks is available in the `scripts` directory of this repository.
 
