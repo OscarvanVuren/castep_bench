@@ -476,7 +476,7 @@ Given that the 54 atom cell was too small to see scaling with number of GPUs, an
 
 #### Compiler Testing
 
-As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2 $\times$ 2 $\times$ 2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured, comparing `gfortran+openMPI+openBLAs+FFTW3` to an Intel stack of `ifort+Intel MPI+MKL+MKL_FFT`. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (`nvfortran+openMPI+NVPL+FFTW3`).
+As well as profiling the performance of hardware on HPC facilities using these benchmarks, the effect of compiler and library combination has been explored. This was done using the Fe 2 $\times$ 2 $\times$ 2 benchmark, pinned at 16 MPI processes. Performance as a function of compiler and library stack was measured, comparing `gfortran+openMPI+openBLAs+FFTW3` to an Intel stack of `ifort+Intel MPI+MKL+MKL_FFT`. Additionally, an NVIDIA toolchain was explored where possible, using the NVIDIA Performance Libraries (NVPL) and openMPI as shipped with the NVIDIA HPC Toolkit (`nvfortran+openMPI+NVPL+FFTW3`). These were chosen to match, as closely as possible, the `foss`, `intel` and `NVHPC` toolachins from [EasyBuild](https://docs.easybuild.io/common-toolchains/).
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
