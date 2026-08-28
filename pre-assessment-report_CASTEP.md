@@ -17,7 +17,6 @@ The associated SHAREing work package for this pre assessment of CASTEP is [WP 01
 
 CASTEP version 26 was benchmarked using CPU only and GPU accelerated workloads on three different HPC architectures.
 
-
 ## Disclaimers
 
 1. This report is not a commentary on code quality, but an indicator of the quality of the current SHAREing testing methodology as of `31/07/2026`.
@@ -114,7 +113,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 
 2. The [Isambard3 Multi-Architecture Comparison System (MACS)](https://docs.isambard.ac.uk), hosted by Bristol University.
    - AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
-   - AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node.
+[   - AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node. ]: #
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
 
@@ -256,11 +255,11 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 
 CASTEP depends on three core maths libraries: LAPACK, BLAS and an FFT library.
 
-**LAPACK and BLAS**
+#### LAPACK and BLAS
 
 CASTEP supports multiple implementations of BLAS and LAPACK: [flexiblas](https://www.mpi-magdeburg.mpg.de/projects/flexiblas), [openblas](https://www.openmathlib.org/OpenBLAS/docs/), [mkl](https://www.intel.com/content/www/us/en/developer/tools/oneapi/onemkl.html), [blis](https://github.com/flame/blis), [libflame](https://github.com/flame/libflame), [aocl](https://www.amd.com/en/developer/aocl.html), [atlas](https://math-atlas.sourceforge.net/), [essl](https://www.ibm.com/docs/en/aix/7.1.0?topic=techniques-calling-blas-essl-libraries), [scilib](https://cpe.ext.hpe.com/docs/latest/csml/cray_libsci.html), default, generic. Links for more information have been provided where possible. The Flame library (libflame) contains LAPACK only, and therefore must be paired with a BLAS library (BLIS is recommended). "default" and "generic" options are synonyms and specify no particular BLAS and LAPACK library, and instead search for `libblas` and `liblapack` in the `PATH`.
 
-**FFT Library**
+#### FFT Library
 
 The simplest FFT library to use with CASTEP is the [Fastest Fourier Transform in the West (FFTW)](https://www.fftw.org/) library, which implements a performant and portable FFT algorithm. Another supported FFT library is included in the Intel oneAPI Maths Kernel Library (MKL), but this requires use of the MKL versions of BLAS and LAPACK.
 
@@ -390,9 +389,7 @@ To assess the utilisation of CPU resources when performing simulations using CAS
    <figcaption> Figure 3: Raw calculation timing data for the water box benchmark. </figcaption>
 </figure>
 
-Serial performance when using the AVX instruction set, or the equivalent SVE for NVIDIA Grace, generally falls within 50% to 90% utilisation. CPU utilisation of greater than 60% in this case would be considered good performance. Parallel performance, relative to our synthetic benchmark, drops off with increasing CPU load as the challenge of distrubuting the CASTEP workload into the CPU cache becomes a greater bottleneck.
-
-#### CASTEP CPU Performance
+#### CASTEP CPU-Only Performance
 
 **Fe 2 $\times$ 2 $\times$ 2**
 
@@ -420,7 +417,7 @@ Raw timing data for the CPU only performance of various architectures, alongside
    <figcaption> Figure 6: Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
-#### CASTEP GPU Performance
+#### CASTEP GPU Accelerated Performance
 
 **Fe 2 $\times$ 2 $\times$ 2**
 
@@ -488,7 +485,7 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 #### Data Availability
 
-The data used to generate these plots is available as a `.csv` from the `data` directory.
+The data used to generate these plots is available as a `.csv` from the `data` directory. All raw data, including input and output files from all CASTEP simulations, is available at DOI_LINK.
 
 [> Include any additional information from the submitter that does not fit the previous sections.]: #
 
