@@ -105,27 +105,27 @@ The `SEEDNAME` used in running the benchmarks determines the output filenames. M
 Three different HPC clusters were used in this pre-assessment, chosen due to a combination of availability and hardware variety. This information is taken from the websites linked for each header and corroborated by running `cat /proc/cpuinfo` or `lscpu`, particularly `lscpu -C` for detailed cache information, on the compute nodes. Only relevant compute hardware has been mentioned in these descriptions; untested hardware has been omitted.
 
 1. The [Falcon](https://wiki.arcca.cf.ac.uk/index.php/The_Falcon_Supercomputer) cluster at Cardiff University.
-   - AMD EPYC Genoa 9654 CPU. 192 cores per node. 30 nodes.
-   - Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
-   - Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
-   - Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
-   - Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
+   - `compute`: AMD EPYC Genoa 9654 CPU. 192 cores per node. 30 nodes.
+   - `gpu_h200`: Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H200 GPU. 64 CPU cores per node, 4 H200 GPUs per node. 1 node.
+   - `gpu_h100`: Intel Xeon (Emerald Rapids) 6530 CPU, NVIDIA H100 GPU. 64 CPU cores per node, 4 H100 GPUs per node. 1 node.
+   - `gpu_l40s`: Intel Xeon (Sapphire Rapids) 6430 CPU, NVIDIA L40S GPU. 64 CPU cores per node, 8 L40S GPUs per node. 2 nodes.
+   - `gpu_v100`: Intel Xeon (Cascade Lake) 6248 CPU, NVIDIA V100 GPU. 40 CPU cores per node, 2 V100 GPUs per node. 13 nodes.
 
 2. The [Isambard3 Multi-Architecture Comparison System (MACS)](https://docs.isambard.ac.uk), hosted by Bristol University.
-   - AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
+   - `ampere`: AMD EPYC Milan 7543P CPU, NVIDIA A100 GPU. 32 CPU cores per node, 4 A100 GPUs per node. 2 nodes.
 [   - AMD Ep Milan 7543P CPU, NVIDIA H100 GPU. 32 CPU cores per node, 4 H100 GPUs per node. 1 node. ]: #
 
 3. The [Bede](https://bede-documentation.readthedocs.io/en/latest/index.html) cluster from the N8 Group, hosted at Durham University.
 
    [* IBM POWER9 CPU, NVIDIA V100 GPU. 32 CPU cores with 4 hardware threads for 128 processes per node. 4 V100 GPUs per node. 32 nodes available.]: #
 
-   - NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes.
+   - `gh`: NVIDIA Grace-Hopper GH200 Superchip. NVIDIA Grace CPU, 72 cores per node. 1 H100 GPU per node. 8 nodes.
 
 [> Provide processor, memory and cache information as well as interconnect information (e.g. Infiniband, NVlink - if across multiple nodes) of the system the assessment is to be performed on.]: #
 
 [> The table below is an example and should be adapted for "non-standard" architectures, e.g. systems with Grace Hopper nodes. A placeholder for hardware accelerators is provided. For most assessment projects, these are likely to be GPUs (generally Nvidia or AMD). But some cases may also work with FPGAs, ASICs etc. Include any relevant specifications.]: #
 
-**Falcon CPU**
+**Falcon CPU `compute`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -136,7 +136,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>      |
 | RAM                       | 768 GB DDR5                                                               |
 
-**Falcon GPU H200**
+**Falcon GPU H200 `gpu_h200`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -150,7 +150,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>     |
 | RAM                       | 1000 GB DDR5                                                               |
 
-**Falcon GPU H100**
+**Falcon GPU H100 `gpu_h100`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -164,7 +164,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>                              |
 | RAM                       | 1000 GB DDR5                                                               |
 
-**Falcon GPU L40S**
+**Falcon GPU L40S `gpu_l40s`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -178,7 +178,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 6 MiB </li><li> L1i 6 MiB </li><li> L2 192 MiB </li><li> L3 768 MiB </li></ul>                              |
 | RAM                       | 1000 GB DDR5                                                               |
 
-**Falcon GPU V100**
+**Falcon GPU V100 `gpu_v100`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -192,7 +192,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 1.3 MiB </li><li> L1i 1.3 MiB </li><li> L2 40 MiB </li><li> L3 55 MiB </li></ul>     |
 | RAM                       | 360 GB DDR5                                                               |
 
-**Isambard3 MACS "ampere"**
+**Isambard3 MACS `ampere`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -206,19 +206,19 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 | CPU Cache                 | <ul><li>L1d 1 MiB </li><li> L1i 1 MiB </li><li> L2 16 MiB </li><li> L3 256 MiB </li></ul>     |
 | RAM                       | 256 GB DDR5                                                               |
 
-**Isambard3 MACS "hopper"**
-
-| Specification             | Per node                                                                     |
-| ------------------------- | ---------------------------------------------------------------------------- |
-| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        |
-| GPU                       | 4  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) |
-| GPU Memory                | 80 GB                                                                         |
-| GPU Connect               | PCIe                                                                        |
-| Clock speed per CPU       | 4.0 GHz                                                                     |
-| Sockets                   | 1                                                                          |
-| Cores (per socket)        | 32 (32)                                                                        |
-| CPU Cache                 | <ul><li>L1d 1 MiB </li><li> L1i 1 MiB </li><li> L2 16 MiB </li><li> L3 256 MiB </li></ul>     |
-| RAM                       | 256 GB DDR5                                                               |
+[**Isambard3 MACS "hopper"** ]: #
+[ ]: #
+[| Specification             | Per node                                                                     | ]: #
+[| ------------------------- | ---------------------------------------------------------------------------- | ]: #
+[| Processors                | 1  $\times$  [AMD EPYC Milan 7543P](https://www.amd.com/en/products/processors/server/EPYC/7003-series/amd-EPYC-7543p.html)        | ]: #
+[| GPU                       | 4  $\times$  [NVIDIA H100](https://www.nvidia.com/en-gb/data-center/h100/) | ]: #
+[| GPU Memory                | 80 GB                                                                         | ]: #
+[| GPU Connect               | PCIe                                                                        | ]: #
+[| Clock speed per CPU       | 4.0 GHz                                                                     | ]: #
+[| Sockets                   | 1                                                                          | ]: #
+[| Cores (per socket)        | 32 (32)                                                                        | ]: #
+[| CPU Cache                 | <ul><li>L1d 1 MiB </li><li> L1i 1 MiB </li><li> L2 16 MiB </li><li> L3 256 MiB </li></ul>     | ]: #
+[| RAM                       | 256 GB DDR5                                                               | ]: #
 
 [**Bede POWER9** ]: #
 [IBM POWER9 CPUs have 4 hardware threads available per core. System summaries that do not contain an explicit thread count have one thread per CPU core. ]: #
@@ -233,7 +233,7 @@ Three different HPC clusters were used in this pre-assessment, chosen due to a c
 [| RAM                       | 512 GB DDR4                                                               | ]: #
 [| Local storage             | 480 GB SATA SSD                                                           | ]: #
 
-**Bede Grace Hopper**
+**Bede Grace Hopper `gh`**
 
 | Specification             | Per node                                                                     |
 | ------------------------- | ---------------------------------------------------------------------------- |
@@ -480,7 +480,7 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiling CASTEP using different compiler and library stacks.
+   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiling CASTEP using different compiler and library stacks. Lower is better.
 </figure>
 
 #### Data Availability
