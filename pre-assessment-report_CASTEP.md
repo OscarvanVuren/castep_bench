@@ -346,19 +346,18 @@ Raw timing data for the CPU only performance of various architectures, alongside
 Exploring the scaling of CASTEP calculations on multiple GPUs was challenging. As we have considered only the iron system in this scaling test, as this model is simpler to increase in cost. The benchmark we have been using thus far, the Fe 2 &times; 2 &times; 2 benchmark, was found to be too small to reasonably see performance gains from using multiple GPUs, so the benchmark was increased in size to 3 &times; 3 &times; 3, or 54 atoms. In an attempt to keep this simulation tractable, the number of **k** points considerd was reduced to 8. This size of system begins to push the boundaries of what can be considered an effective benchmark, with respect to total wall time, and yet was still found to be too small to properly assess GPU scaling using CASTEP. Yet, we present results using this testcase as they display the relative performance of GPU models for CASTEP applications.
 
 <figure>
-   <img src="./figs/plots/fe_444_h200Test_raw.png" width="600">
-   <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <img src="./figs/plots/fe333_GPU_strongScaling.png" width="600">
+   <figcaption> Figure 10: Calculation timing data for an expanded Fe 3 &times; 3 &times; 3 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 Given that the 54 atom cell was too small to see scaling with number of GPUs, and that the overall wall time for these simulations was moving well beyond the suggested maximum of 10 minutes, the performance of a larger Fe 4 &times; 4 &times; 4 cell (128 atoms) with 32 **k** points was assessed using multiple GPUs and 32 MPI tasks. Results are presented for the H200 GPU only, as all other GPUs lacked the memory to run this simulation on a single GPU.
-
 <figure>
-   <img src="./figs/plots/fe_444_h200Test_raw.png" width="600">
+   <img src="./figs/plots/fe444_h200Test_raw.png" width="600">
    <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 <figure>
-   <img src="./figs/plots/fe_444_h200Test_strongScaling.png" width="600">
+   <img src="./figs/plots/fe444_h200Test_strongScaling.png" width="600">
    <figcaption> Figure 10: Calculation speedup for using more GPUs on an expanded Fe 4 &times; 4 &times; 4 benchmark. The dashed black line shows the strong scaling limit </figcaption>
 </figure>
 
