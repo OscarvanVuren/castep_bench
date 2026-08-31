@@ -1,0 +1,27 @@
+task: singlepoint
+cut_off_energy: 800 eV
+xc_functional : PBE
+calculate_stress   : true
+finite_basis_corr  : none
+#nextra_bands       : 8
+#fix_occupancy : true
+opt_strategy :   speed
+WRITE_FORMATTED_POTENTIAL:false
+WRITE_FORMATTED_DENSITY:false
+WRITE_FORMATTED_ELF:false
+#WRITE_XC_POT:false
+#WRITE_HARTREE_POT:false
+#WRITE_FORMATTED_XC:false
+#WRITE_FORMATTED_HARTREE:false
+WRITE_ORBITALS:false
+WRITE_CIF_STRUCTURE:false
+WRITE_CELL_STRUCTURE:false
+WRITE_BIB:false
+WRITE_CST_ESP:false
+WRITE_BANDS:false
+WRITE_GEOM:false
+WRITE_MD:false
+WRITE_CHECKPOINT:false
+%block devel_code
+TRACE PROF: * :END PROF
+%endblock devel_code
