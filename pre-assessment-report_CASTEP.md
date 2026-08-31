@@ -274,7 +274,7 @@ To assess the utilisation of CPU resources when performing simulations using CAS
 
 <figure>
    <img src="./figs/plots/h2o_cpuUtil.png" width="600">
-   <figcaption> Figure 3: Raw calculation timing data for the water box benchmark. </figcaption>
+   <figcaption> Figure 4: Raw calculation timing data for the water box benchmark. </figcaption>
 </figure>
 
 #### CASTEP CPU-Only Performance
@@ -285,24 +285,24 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_cpu.png" width="600">
-   <figcaption> Figure 3: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
+   <figcaption> Figure 5: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_cpu_strongScaling.png" width="600">
-   <figcaption> Figure 4: Strong scaling of the Fe 2 &times; 2 &times; 2 benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Figure 6: Strong scaling of the Fe 2 &times; 2 &times; 2 benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_cpu.png" width="600">
-   <figcaption> Figure 5: Raw calculation timing data for the water box benchmark. </figcaption>
+   <figcaption> Figure 7: Raw calculation timing data for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_cpu_strongScaling.png" width="600">
-   <figcaption> Figure 6: Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
+   <figcaption> Figure 8: Strong scaling of the water box benchmark, up to 32 MPI processes. </figcaption>
 </figure>
 
 #### CASTEP GPU Accelerated Performance
@@ -311,34 +311,34 @@ Raw timing data for the CPU only performance of various architectures, alongside
 
 <figure>
    <img src="./figs/plots/fe_gpu.png" width="600">
-   <figcaption> Figure 7: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Figure 9: Raw calculation timing data for the Fe 2 &times; 2 &times; 2 benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_speedup.png" width="600">
-   <figcaption> Figure 8: Speedup from CPU by using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
+   <figcaption> Figure 10: Speedup from CPU by using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe_gpu_percentage.png" width="600">
-   <figcaption> Figure 9: Computational cost saving from using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. Higher is better. </figcaption>
+   <figcaption> Figure 11: Computational cost saving from using a GPU for the Fe 2 &times; 2 &times; 2 benchmark. Higher is better. </figcaption>
 </figure>
 
 **Waterbox**
 
 <figure>
    <img src="./figs/plots/waterbox_gpu.png" width="600">
-   <figcaption> Figure 11: Raw calculation timing data for the water box benchmark, when using GPU acceleration. </figcaption>
+   <figcaption> Figure 12: Raw calculation timing data for the water box benchmark, when using GPU acceleration. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_speedup.png" width="600">
-   <figcaption> Figure 12: Speedup from CPU by using a GPU for the water box benchmark. </figcaption>
+   <figcaption> Figure 13: Speedup from CPU by using a GPU for the water box benchmark. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/waterbox_gpu_percentage.png" width="600">
-   <figcaption> Figure 13: Computational cost saving from using a GPU for the water box benchmark. Higher is better. </figcaption>
+   <figcaption> Figure 14: Computational cost saving from using a GPU for the water box benchmark. Higher is better. </figcaption>
 </figure>
 
 **Multi-GPU Scaling Performance**
@@ -347,18 +347,18 @@ Exploring the scaling of CASTEP calculations on multiple GPUs was challenging. A
 
 <figure>
    <img src="./figs/plots/fe333_GPU_strongScaling.png" width="600">
-   <figcaption> Figure 10: Calculation timing data for an expanded Fe 3 &times; 3 &times; 3 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <figcaption> Figure 15: Calculation timing data for an expanded Fe 3 &times; 3 &times; 3 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 Given that the 54 atom cell was too small to see scaling with number of GPUs, and that the overall wall time for these simulations was moving well beyond the suggested maximum of 10 minutes, the performance of a larger Fe 4 &times; 4 &times; 4 cell (128 atoms) with 32 **k** points was assessed using multiple GPUs and 32 MPI tasks. Results are presented for the H200 GPU only, as all other GPUs lacked the memory to run this simulation on a single GPU.
 <figure>
    <img src="./figs/plots/fe444_h200Test_raw.png" width="600">
-   <figcaption> Figure 10: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
+   <figcaption> Figure 16: Calculation timing data for an expanded Fe 4 &times; 4 &times; 4 benchmark, when using GPU acceleration with multiple GPUs. </figcaption>
 </figure>
 
 <figure>
    <img src="./figs/plots/fe444_h200Test_strongScaling.png" width="600">
-   <figcaption> Figure 10: Calculation speedup for using more GPUs on an expanded Fe 4 &times; 4 &times; 4 benchmark. The dashed black line shows the strong scaling limit </figcaption>
+   <figcaption> Figure 17: Calculation speedup for using more GPUs on an expanded Fe 4 &times; 4 &times; 4 benchmark. The dashed black line shows the strong scaling limit </figcaption>
 </figure>
 
 #### Compiler Testing
@@ -367,9 +367,9 @@ As well as profiling the performance of hardware on HPC facilities using these b
 
 <figure>
    <img src="./figs/plots/compiler_testing.png" width="1000">
-   <figcaption> Figure 14: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiling CASTEP using different compiler and library stacks. Lower is better.
+   <figcaption> Figure 18: Calculation time for an Fe 2 &times; 2 &times; 2 benchmark on 16 MPI processes, when compiling CASTEP using different compiler and library stacks. Lower is better.
 </figure>
 
 #### Data Availability
 
-The data used to generate these plots is available as a `.csv` from the `data` directory. All raw data, including input and output files from all CASTEP simulations, is available at DOI_LINK.
+The data used to generate these plots is available as a `.csv` from the `data` directory. All raw data, including input and output files from all CASTEP simulations, is available [here](https://doi.10.17035/cardiff.33155102).
